@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { GameCardComponent } from '@games/components/game-card/game-card.component';
+import { GamesService } from '../../../games/services/games.service';
+import { rxResource } from '@angular/core/rxjs-interop';
 
 
 @Component({
@@ -7,4 +9,17 @@ import { GameCardComponent } from '@games/components/game-card/game-card.compone
   imports: [GameCardComponent],
   templateUrl: './home-page.component.html',
 })
-export class HomePageComponent { }
+export class HomePageComponent {
+
+GamesService = inject(GamesService);
+
+gamesResource = rxResource({
+request:() => ({}),
+loader:({request}) => {
+  return this.GamesService.getGames();
+}
+});
+
+
+
+}

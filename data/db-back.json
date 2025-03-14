@@ -1,0 +1,111 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "usuario": "Gamer123",
+      "email": "gamer123@gmail.com"
+    }
+  ],
+  "games": [
+    {
+      "id": "ps-gowr",
+      "title": "God of War Ragnarök",
+      "platforms": ["PS5", "PS4"],
+      "developer": "Santa Monica Studio",
+      "publisher": "Sony Interactive Entertainment",
+      "release_year": 2022,
+      "genre": "Action-Adventure",
+      "description": "Kratos y Atreus se embarcan en un viaje épico para detener el Ragnarök mientras enfrentan a dioses nórdicos."
+    },
+    {
+      "id": "ps-spiderman2",
+      "title": "Marvel's Spider-Man 2",
+      "platforms": ["PS5"],
+      "developer": "Insomniac Games",
+      "publisher": "Sony Interactive Entertainment",
+      "release_year": 2023,
+      "genre": "Action-Adventure",
+      "description": "Peter Parker y Miles Morales unen fuerzas para enfrentarse a nuevos villanos, incluyendo a Venom."
+    },
+    {
+      "id": "ps-eldenring",
+      "title": "Elden Ring",
+      "platforms": ["PS5", "PS4"],
+      "developer": "FromSoftware",
+      "publisher": "Bandai Namco Entertainment",
+      "release_year": 2022,
+      "genre": "Action RPG",
+      "description": "Explora las Tierras Intermedias en un mundo abierto vasto, lleno de peligros y secretos por descubrir."
+    },
+    {
+      "id": "ps-tlou2",
+      "title": "The Last of Us Part II",
+      "platforms": ["PS4"],
+      "developer": "Naughty Dog",
+      "publisher": "Sony Interactive Entertainment",
+      "release_year": 2020,
+      "genre": "Action-Adventure",
+      "description": "Ellie emprende un brutal viaje de venganza en un mundo postapocalíptico infestado de infectados y enemigos humanos."
+    },
+    {
+      "id": "ps-hfw",
+      "title": "Horizon Forbidden West",
+      "platforms": ["PS5", "PS4"],
+      "developer": "Guerrilla Games",
+      "publisher": "Sony Interactive Entertainment",
+      "release_year": 2022,
+      "genre": "Action RPG",
+      "description": "Aloy viaja hacia el oeste en busca de respuestas sobre una misteriosa plaga que amenaza la humanidad."
+    },
+    {
+      "id": "ps-ffxvi",
+      "title": "Final Fantasy XVI",
+      "platforms": ["PS5"],
+      "developer": "Square Enix",
+      "publisher": "Square Enix",
+      "release_year": 2023,
+      "genre": "Action RPG",
+      "description": "Un épico RPG de fantasía oscura en el que Clive Rosfield lucha por el destino de Valisthea."
+    },
+    {
+      "id": "ps-rdr2",
+      "title": "Red Dead Redemption 2",
+      "platforms": ["PS4"],
+      "developer": "Rockstar Games",
+      "publisher": "Rockstar Games",
+      "release_year": 2018,
+      "genre": "Action-Adventure",
+      "description": "Arthur Morgan y la banda de Van der Linde intentan sobrevivir en los últimos días del salvaje oeste."
+    },
+    {
+      "id": "ps-gt7",
+      "title": "Gran Turismo 7",
+      "platforms": ["PS5", "PS4"],
+      "developer": "Polyphony Digital",
+      "publisher": "Sony Interactive Entertainment",
+      "release_year": 2022,
+      "genre": "Racing",
+      "description": "El simulador de conducción definitivo con una enorme colección de coches y circuitos realistas."
+    },
+    {
+      "id": "ps-dsremake",
+      "title": "Demon's Souls Remake",
+      "platforms": ["PS5"],
+      "developer": "Bluepoint Games",
+      "publisher": "Sony Interactive Entertainment",
+      "release_year": 2020,
+      "genre": "Action RPG",
+      "description": "Una remasterización impresionante del clásico de FromSoftware que definió el género Soulslike."
+    },
+    {
+      "id": "ps-ghosttsushima",
+      "title": "Ghost of Tsushima",
+      "platforms": ["PS5", "PS4"],
+      "developer": "Sucker Punch Productions",
+      "publisher": "Sony Interactive Entertainment",
+      "release_year": 2020,
+      "genre": "Action-Adventure",
+      "description": "Jin Sakai lucha contra la invasión mongola en un mundo abierto inspirado en el Japón feudal."
+    }
+  ]
+}
