@@ -2,8 +2,8 @@
   "users": [
     {
       "id": 1,
-      "usuario": "Gamer123",
-      "email": "gamer123@gmail.com"
+      "usuario": "VdeVelasco7",
+      "email": "vdevelasco7@gmail.com"
     }
   ],
   "games": [
@@ -15,7 +15,8 @@
       "publisher": "Sony Interactive Entertainment",
       "release_year": 2022,
       "genre": "Action-Adventure",
-      "description": "Kratos y Atreus se embarcan en un viaje épico para detener el Ragnarök mientras enfrentan a dioses nórdicos."
+      "description": "Kratos y Atreus se embarcan en un viaje épico para detener el Ragnarök mientras enfrentan a dioses nórdicos.",
+      "image":"assets/images/god.jpg"
     },
     {
       "id": "ps-spiderman2",
@@ -25,7 +26,8 @@
       "publisher": "Sony Interactive Entertainment",
       "release_year": 2023,
       "genre": "Action-Adventure",
-      "description": "Peter Parker y Miles Morales unen fuerzas para enfrentarse a nuevos villanos, incluyendo a Venom."
+      "description": "Peter Parker y Miles Morales unen fuerzas para enfrentarse a nuevos villanos, incluyendo a Venom.",
+      "image":"assets/images/god.jpg"
     },
     {
       "id": "ps-eldenring",
@@ -35,7 +37,8 @@
       "publisher": "Bandai Namco Entertainment",
       "release_year": 2022,
       "genre": "Action RPG",
-      "description": "Explora las Tierras Intermedias en un mundo abierto vasto, lleno de peligros y secretos por descubrir."
+      "description": "Explora las Tierras Intermedias en un mundo abierto vasto, lleno de peligros y secretos por descubrir.",
+      "image":"assets/images/god.jpg"
     },
     {
       "id": "ps-tlou2",
@@ -45,7 +48,8 @@
       "publisher": "Sony Interactive Entertainment",
       "release_year": 2020,
       "genre": "Action-Adventure",
-      "description": "Ellie emprende un brutal viaje de venganza en un mundo postapocalíptico infestado de infectados y enemigos humanos."
+      "description": "Ellie emprende un brutal viaje de venganza en un mundo postapocalíptico infestado de infectados y enemigos humanos.",
+      "image":"assets/images/god.jpg"
     },
     {
       "id": "ps-hfw",
@@ -55,7 +59,8 @@
       "publisher": "Sony Interactive Entertainment",
       "release_year": 2022,
       "genre": "Action RPG",
-      "description": "Aloy viaja hacia el oeste en busca de respuestas sobre una misteriosa plaga que amenaza la humanidad."
+      "description": "Aloy viaja hacia el oeste en busca de respuestas sobre una misteriosa plaga que amenaza la humanidad.",
+      "image":"assets/images/god.jpg"
     },
     {
       "id": "ps-ffxvi",
@@ -65,7 +70,8 @@
       "publisher": "Square Enix",
       "release_year": 2023,
       "genre": "Action RPG",
-      "description": "Un épico RPG de fantasía oscura en el que Clive Rosfield lucha por el destino de Valisthea."
+      "description": "Un épico RPG de fantasía oscura en el que Clive Rosfield lucha por el destino de Valisthea.",
+      "image":"assets/images/god.jpg"
     },
     {
       "id": "ps-rdr2",
@@ -75,7 +81,8 @@
       "publisher": "Rockstar Games",
       "release_year": 2018,
       "genre": "Action-Adventure",
-      "description": "Arthur Morgan y la banda de Van der Linde intentan sobrevivir en los últimos días del salvaje oeste."
+      "description": "Arthur Morgan y la banda de Van der Linde intentan sobrevivir en los últimos días del salvaje oeste.",
+      "image":"assets/images/god.jpg"
     },
     {
       "id": "ps-gt7",
@@ -85,7 +92,8 @@
       "publisher": "Sony Interactive Entertainment",
       "release_year": 2022,
       "genre": "Racing",
-      "description": "El simulador de conducción definitivo con una enorme colección de coches y circuitos realistas."
+      "description": "El simulador de conducción definitivo con una enorme colección de coches y circuitos realistas.",
+      "image":"assets/images/god.jpg"
     },
     {
       "id": "ps-dsremake",
@@ -95,7 +103,8 @@
       "publisher": "Sony Interactive Entertainment",
       "release_year": 2020,
       "genre": "Action RPG",
-      "description": "Una remasterización impresionante del clásico de FromSoftware que definió el género Soulslike."
+      "description": "Una remasterización impresionante del clásico de FromSoftware que definió el género Soulslike.",
+      "image":"assets/images/god.jpg"
     },
     {
       "id": "ps-ghosttsushima",
@@ -105,7 +114,8 @@
       "publisher": "Sony Interactive Entertainment",
       "release_year": 2020,
       "genre": "Action-Adventure",
-      "description": "Jin Sakai lucha contra la invasión mongola en un mundo abierto inspirado en el Japón feudal."
+      "description": "Jin Sakai lucha contra la invasión mongola en un mundo abierto inspirado en el Japón feudal.",
+      "image":"assets/images/god.jpg"
     }
   ]
 }

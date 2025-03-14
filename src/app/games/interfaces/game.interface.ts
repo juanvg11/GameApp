@@ -7,6 +7,9 @@ export interface GamesResponse {
   release_year: number;
   genre:        Genre;
   description:  string;
+  image:        string;
+  favorite:     boolean;
+  rating:       number;
 }
 
 export enum Genre {

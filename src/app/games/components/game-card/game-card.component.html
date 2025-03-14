@@ -1,17 +1,39 @@
 <div class="card bg-base-100 shadow-sm animate-fadeIn">
-  <figure>
+  <figure class="relative w-full aspect-[16/9] overflow-hidden">
     <img
-      src="https://a.storyblok.com/f/178900/960x540/50aa75788a/one-piece-luffy-gear-5.jpg/m/filters:quality(95)format(webp)"
-      alt="Shoes" />
+      [src]=" game().image| gameImage"
+      [alt]="game().title" />
   </figure>
   <div class="card-body">
-    <h2 class="card-title">Card Title</h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+    <h2 class="card-title text-accent text-xl">{{game().title}}</h2>
+    <p>{{game().description | slice: 0 : 70}} ...</p>
     <div class="card-actions justify-end">
 
 <a
 class="link link-accent"
-[routerLink]="['/game', 'juego']"> Ver juego</a>
+[routerLink]="['/game', game().title]"> Ver juego</a>
     </div>
   </div>
 </div>
+
+
+<!--  <div class="card bg-base-100 shadow-sm animate-fadeIn">
+  <figure class="relative w-full aspect-[16/9] overflow-hidden">
+    <img [src]="game().image | gameImage" [alt]="game().title" class="w-full h-full object-cover"/>
+  </figure>
+
+  <div class="card-body">
+    <div class="flex justify-between items-center">
+      <h2 class="card-title text-accent text-xl">{{ game().title }}</h2>
+
+
+
+    <p>{{ game().description | slice: 0 : 70 }} ...</p>
+
+
+
+    <div class="card-actions justify-end">
+      <a class="link link-accent" [routerLink]="['/game', game().title]"> Ver juego</a>
+    </div>
+  </div>
+</div> -->

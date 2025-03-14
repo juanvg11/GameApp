@@ -4,11 +4,12 @@
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3">
 
+@for (game of this.gamesResource.value(); track game.id) {
+  <game-card [game]="game"></game-card>
+} @empty {
+  <p>No hay juegos</p>
+}
 
- <game-card></game-card>
- <game-card></game-card>
- <game-card></game-card>
- <game-card></game-card>
 </div>
 
 
