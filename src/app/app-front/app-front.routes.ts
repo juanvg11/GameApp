@@ -22,7 +22,7 @@ export const appFrontRoutes: Routes = [
       component: CategoryPageComponent
     },
     {
-      path:'game/:idSlug',
+      path:'game/:id',
       component: GamePageComponent
     },
   {

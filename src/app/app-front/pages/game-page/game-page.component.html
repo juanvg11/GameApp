@@ -1,1 +1,26 @@
-<p>game-page works!</p>
+@if( gamesResource.isLoading() ) {
+  <div class="flex justify-center items-center h-screen">
+    <span class="loading loading-spinner loading-lg"></span>
+  </div>
+  }
+<!-- Producto -->
+@if( gamesResource.hasValue() ) {
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+    <!-- Imágenes -->
+<game-carousel [images]="gamesResource.value().image"></game-carousel>
+
+    <!--  -->
+    <div>
+      <h2 class="text-2xl font-bold font-montserrat">
+        {{ gamesResource.value().title }}
+      </h2>
+      <div class="divider"></div>
+
+      <p>
+        {{ gamesResource.value().description }}
+      </p>
+    </div>
+  </div>
+
+  }

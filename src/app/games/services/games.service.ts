@@ -19,4 +19,9 @@ getGames():Observable<GamesResponse[]>{
   .pipe(tap(resp => console.log(resp)));
 }
 
+getGameById(id:string):Observable<GamesResponse>{
+  return this.http.get<GamesResponse>(`${baseUrl}/games/${id}`);
+
+}
+
 }
