@@ -1,5 +1,6 @@
 import { A11yEvents } from './../../../../../node_modules/swiper/types/modules/a11y.d';
 import { AfterViewInit, Component, ElementRef, input, viewChild } from '@angular/core';
+import { GameImagePipe } from '@games/pipes/game-image.pipe';
 
 // import Swiper JS
 import Swiper from 'swiper';
@@ -12,7 +13,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 
 @Component({
   selector: 'game-carousel',
-  imports: [],
+  imports: [GameImagePipe],
   templateUrl: './game-carousel.component.html',
   styles: `
   .swiper {
@@ -26,7 +27,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 export class GameCarouselComponent implements AfterViewInit{
 
 
-  images = input.required<string>()
+  images = input.required<string[]>()
   swiperDiv = viewChild.required<ElementRef>('swiperDiv')
 
   ngAfterViewInit(): void {

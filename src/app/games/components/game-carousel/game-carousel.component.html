@@ -4,11 +4,14 @@
   <div class="swiper-wrapper">
     <!-- Slides -->
 
+@for (image of images(); track $index) {
+  <div class="swiper-slide">
+    <img [src]="image | gameImage" alt="Juego"
+    class="h-full object-cover">
+  </div>
 
-    <div class="swiper-slide"></div>
-    <div class="swiper-slide">Slide 2</div>
-    <div class="swiper-slide">Slide 3</div>
-    ...
+}
+
   </div>
   <!-- If we need pagination -->
   <div class="swiper-pagination"></div>

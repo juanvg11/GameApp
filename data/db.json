@@ -16,7 +16,7 @@
       "release_year": 2022,
       "genre": "Action-Adventure",
       "description": "Kratos y Atreus se embarcan en un viaje épico para detener el Ragnarök mientras enfrentan a dioses nórdicos.",
-      "image":"god.jpg",
+      "image":["god.jpg", "spiderman.jpg"],
       "favorite": false,
       "rating":0
 
