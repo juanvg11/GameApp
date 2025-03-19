@@ -7,6 +7,10 @@ import { environments } from 'src/environments/environments';
 // 'http://localhost:3000'
 const baseUrl = environments.baseUrl
 
+interface Options {
+  category?: string;
+}
+
 @Injectable({providedIn: 'root'})
 export class GamesService {
 
@@ -14,10 +18,21 @@ export class GamesService {
   private http = inject(HttpClient);
 
 
-getGames():Observable<GamesResponse[]>{
+/* getGames():Observable<GamesResponse[]>{
   return this.http.get<GamesResponse[]>(`${baseUrl}/games`)
   .pipe(tap(resp => console.log(resp)));
-}
+} */
+
+  getGames(options: Options):Observable<GamesResponse[]>{
+    const { category = '' } = options;
+
+    return this.http.get<GamesResponse[]>(`${baseUrl}/games`, {
+        params: {
+          category,
+        },
+      })
+    .pipe(tap(resp => console.log(resp)));
+  }
 
 getGameById(id:string):Observable<GamesResponse>{
   return this.http.get<GamesResponse>(`${baseUrl}/games/${id}`);

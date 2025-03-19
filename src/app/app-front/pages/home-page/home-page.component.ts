@@ -5,11 +5,13 @@ import { rxResource } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 
 import { tap } from 'rxjs';
+import { PaginationComponent } from '@shared/components/pagination/pagination.component';
+
 
 
 @Component({
   selector: 'app-home-page',
-  imports: [GameCardComponent, CommonModule],
+  imports: [GameCardComponent, CommonModule, PaginationComponent],
   templateUrl: './home-page.component.html',
 })
 export class HomePageComponent {
@@ -19,7 +21,7 @@ GamesService = inject(GamesService);
 gamesResource = rxResource({
 request:() => ({}),
 loader:({request}) => {
-  return this.GamesService.getGames();
+  return this.GamesService.getGames({});
 }
 });
 
