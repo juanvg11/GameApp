@@ -22,9 +22,10 @@ export class CategoryPageComponent {
 gamesResource = rxResource({
 request:() => ({genre: this.genre()}),
 loader:({request}) => {
-  return this.GamesService.getGames({
-    category: request.genre,
-  });
+  return this.GamesService.getGamesByGenre(request.genre);
 },
 });
+
+
+
 }

@@ -8,7 +8,7 @@ import { environments } from 'src/environments/environments';
 const baseUrl = environments.baseUrl
 
 interface Options {
-  category?: string;
+  genre?: string;
 }
 
 @Injectable({providedIn: 'root'})
@@ -24,15 +24,21 @@ export class GamesService {
 } */
 
   getGames(options: Options):Observable<GamesResponse[]>{
-    const { category = '' } = options;
+    const { genre = '' } = options;
 
     return this.http.get<GamesResponse[]>(`${baseUrl}/games`, {
         params: {
-          category,
+          genre,
         },
       })
     .pipe(tap(resp => console.log(resp)));
   }
+
+   // Método para obtener juegos por género
+   getGamesByGenre(genre: string): Observable<GamesResponse[]> {
+    return this.http.get<GamesResponse[]>(`${baseUrl}/games/genre/${genre}`);
+  }
+
 
 getGameById(id:string):Observable<GamesResponse>{
   //console.log('Hola')

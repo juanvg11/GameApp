@@ -4,7 +4,7 @@
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3">
 
-@for (game of this.gamesResource.value(); track game.uuid) {
+@for (game of this.gamesResource.value(); track game.genre) {
   <game-card [game]="game"></game-card>
 } @empty {
   <p class="m-5">No hay juegos de la categoria <span class="font-bold text-red-500">{{genre()}}</span></p>
