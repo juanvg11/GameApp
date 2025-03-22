@@ -12,6 +12,9 @@
 <a
 class="link link-accent"
 [routerLink]="['/game', game().uuid]"> Ver juego</a>
+<button (click)="toggleFavorite(game().uuid)" [class.favorite]="game().favorite">
+  {{ game().favorite ? 'Remove from Favorites' : 'Add to Favorites' }}
+</button>
     </div>
   </div>
 </div>
