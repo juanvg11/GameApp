@@ -18,7 +18,7 @@ export const appFrontRoutes: Routes = [
       component: HomePageComponent
     },
     {
-      path:'category/:category',
+      path:'genre/:genre',
       component: CategoryPageComponent
     },
     {
