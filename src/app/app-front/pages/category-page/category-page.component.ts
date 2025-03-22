@@ -15,15 +15,15 @@ export class CategoryPageComponent {
   route = inject(ActivatedRoute);
   GamesService = inject(GamesService);
 
-  category = toSignal(this.route.params.pipe(map(({category}) => category)));
+  genre = toSignal(this.route.params.pipe(map(({genre}) => genre)));
 
 
 
 gamesResource = rxResource({
-request:() => ({category: this.category()}),
+request:() => ({genre: this.genre()}),
 loader:({request}) => {
   return this.GamesService.getGames({
-    category: request.category,
+    category: request.genre,
   });
 },
 });

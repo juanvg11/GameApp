@@ -1,6 +1,6 @@
 export interface GamesResponse {
   uuid: string;
-  //id:          string;
+  id:          string;
   title:        string;
   platforms:    Platform[];
   developer:    string;

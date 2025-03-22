@@ -4,7 +4,7 @@ import { GamesResponse } from '@games/interfaces/game.interface';
 import { Observable, tap } from 'rxjs';
 import { environments } from 'src/environments/environments';
 
-// 'http://localhost:3000'
+// 'http://localhost:5001'
 const baseUrl = environments.baseUrl
 
 interface Options {
@@ -35,6 +35,7 @@ export class GamesService {
   }
 
 getGameById(id:string):Observable<GamesResponse>{
+  //console.log('Hola')
   return this.http.get<GamesResponse>(`${baseUrl}/games/${id}`);
 
 }
