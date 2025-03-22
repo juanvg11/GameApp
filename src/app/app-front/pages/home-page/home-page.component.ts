@@ -11,7 +11,7 @@ import { PaginationComponent } from '@shared/components/pagination/pagination.co
 
 @Component({
   selector: 'app-home-page',
-  imports: [GameCardComponent, CommonModule, PaginationComponent],
+  imports: [GameCardComponent, CommonModule],
   templateUrl: './home-page.component.html',
 })
 export class HomePageComponent {

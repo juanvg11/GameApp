@@ -10,7 +10,7 @@ const baseUrl = environments.baseUrl;
 export class GameImagePipe implements PipeTransform {
   transform(value: string | string[]): string {
     if (typeof value === 'string') {
-      return `${baseUrl}/images/${value}`;
+      return `${value}`;
     }
 
     const image = value.at(0);
@@ -19,7 +19,7 @@ export class GameImagePipe implements PipeTransform {
       return '/images/no-image.jpg';
     }
 
-    return `${baseUrl}/images/${image}`;
+    return `${image}`;
   }
 }
 
