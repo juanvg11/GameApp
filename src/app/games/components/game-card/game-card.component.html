@@ -1,5 +1,5 @@
-<div class="card bg-base-100 shadow-sm animate-fadeIn">
-  <figure class="relative w-full aspect-[16/9] overflow-hidden">
+<div  class="card bg-base-100 shadow-sm animate-fadeIn">
+  <figure [routerLink]="['/game', game().uuid]" class="relative w-full aspect-[16/9] overflow-hidden cursor-pointer">
     <img
       [src]=" game().image| gameImage"
       [alt]="game().title" />
@@ -9,11 +9,10 @@
     <p>{{game().description | slice: 0 : 70}} ...</p>
     <div class="card-actions justify-end">
 
-<a
-class="link link-accent"
-[routerLink]="['/game', game().uuid]"> Ver juego</a>
-<button (click)="toggleFavorite(game().uuid)" [class.favorite]="game().favorite">
-  {{ game().favorite ? 'Remove from Favorites' : 'Add to Favorites' }}
+<button class="text-2xl transition-transform duration-300 ease-in-out transform"
+[class.scale-110]="game().favorite"
+[class.scale-100]="!game().favorite" (click)="toggleFavorite(game().uuid)">
+  {{ game().favorite ? '♥️' : '♡' }}
 </button>
     </div>
   </div>

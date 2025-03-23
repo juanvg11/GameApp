@@ -4,6 +4,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { CategoryPageComponent } from "./pages/category-page/category-page.component";
 import { GamePageComponent } from "./pages/game-page/game-page.component";
 import { NotFoundPageComponent } from "./pages/not-found-page/not-found-page.component";
+import { FavoritesPageComponent } from "./pages/FavoritesPage/FavoritesPage.component";
 
 
 
@@ -24,6 +25,10 @@ export const appFrontRoutes: Routes = [
     {
       path:'game/:id',
       component: GamePageComponent
+    },
+    {
+      path:'favorites',
+      component: FavoritesPageComponent
     },
   {
     path: '**',

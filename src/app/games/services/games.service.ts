@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, input } from '@angular/core';
 import { GamesResponse } from '@games/interfaces/game.interface';
 import { Observable, tap } from 'rxjs';
 import { environments } from 'src/environments/environments';
@@ -16,6 +16,10 @@ export class GamesService {
 
 
   private http = inject(HttpClient);
+
+
+
+
 
 
 /* getGames():Observable<GamesResponse[]>{
@@ -45,5 +49,10 @@ getGameById(id:string):Observable<GamesResponse>{
   return this.http.get<GamesResponse>(`${baseUrl}/games/${id}`);
 
 }
+
+getFavorites(favorite:boolean){
+  return this.http.get<GamesResponse[]>(`${baseUrl}/games/favorite/${favorite}`);
+}
+
 
 }
