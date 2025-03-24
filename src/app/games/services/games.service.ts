@@ -44,7 +44,7 @@ export class GamesService {
   }
 
 
-getGameById(id:string):Observable<GamesResponse>{
+   getGameById(id:string):Observable<GamesResponse>{
   //console.log('Hola')
   return this.http.get<GamesResponse>(`${baseUrl}/games/${id}`);
 

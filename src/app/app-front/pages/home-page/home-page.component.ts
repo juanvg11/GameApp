@@ -6,12 +6,13 @@ import { CommonModule } from '@angular/common';
 
 import { tap } from 'rxjs';
 import { PaginationComponent } from '@shared/components/pagination/pagination.component';
+import { SearchComponent } from '@shared/components/search/search.component';
 
 
 
 @Component({
   selector: 'app-home-page',
-  imports: [GameCardComponent, CommonModule],
+  imports: [GameCardComponent, CommonModule, SearchComponent],
   templateUrl: './home-page.component.html',
 })
 export class HomePageComponent {

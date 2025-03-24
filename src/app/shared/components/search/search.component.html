@@ -1,0 +1,14 @@
+<section class="flex flex-row gap-2 mt-2">
+  <input type="text" class="w-screen input mr-2"
+  placeholder="Buscador..."
+  autofocus
+  #txtSearch (keyup.enter)="onsearch(txtSearch.value)"
+  >
+
+
+  <button class="btn btn-primary" (click)="onsearch(txtSearch.value)">Buscar
+  </button>
+</section>
+<div class="divider"></div>
+
+
