@@ -9,11 +9,31 @@
     <p>{{game().description | slice: 0 : 70}} ...</p>
     <div class="card-actions justify-end">
 
-<button class="text-2xl transition-transform duration-300 ease-in-out transform"
-[class.scale-110]="game().favorite"
-[class.scale-100]="!game().favorite" (click)="toggleFavorite(game().uuid)">
-  {{ game().favorite ? '♥️' : '♡' }}
-</button>
+
+      <!-- Input para ingresar el rating -->
+<!-- <input type="number" [(ngModel)]="ratingValue" min="0" max="10" placeholder="Nuevo rating"> -->
+<!-- <button class="flex flex-auto text-2xl" (click)="ratingGame(game().uuid)">
+  {{ game().rating }}
+</button> -->
+
+<div class="flex flex-auto">
+  <span
+    *ngFor="let value of [ 2, 4, 6, 8, 10]"
+    (click)="ratingGame(game().uuid, value)"
+    class="cursor-pointer text-3xl transition-transform transform hover:scale-125"
+    [ngClass]="{'text-yellow-500': game().rating >= value, 'text-gray-400': game().rating < value}">
+    ★
+  </span>
+</div>
+
+       <!-- <button class="flex flex-auto text-2xl" (click)="ratingGame(game().uuid)">{{ game().rating }}</button> -->
+        <button class="text-2xl transition-transform duration-300 ease-in-out transform"
+        [class.scale-110]="game().favorite"
+        [class.scale-100]="!game().favorite" (click)="toggleFavorite(game().uuid)">
+          {{ game().favorite ? '♥️' : '♡' }}
+        </button>
+
+
     </div>
   </div>
 </div>
