@@ -19,6 +19,14 @@ export class HomePageComponent {
 
 GamesService = inject(GamesService);
 
+onsearch(query: string){
+   this.GamesService.searchByGame(query).subscribe(resp => {
+    console.log(resp)
+  })
+}
+
+
+
 gamesResource = rxResource({
 request:() => ({}),
 loader:({request}) => {

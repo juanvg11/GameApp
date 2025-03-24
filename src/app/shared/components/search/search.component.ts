@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
 })
 export class SearchComponent {
 
-onsearch(value:string){
-console.log(value)
-}
+value = output<string>()
+
 
 }

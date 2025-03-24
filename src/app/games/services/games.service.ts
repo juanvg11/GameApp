@@ -43,6 +43,14 @@ export class GamesService {
     return this.http.get<GamesResponse[]>(`${baseUrl}/games/genre/${genre}`);
   }
 
+  searchByGame( query: string){
+
+    query = query.toLowerCase()
+
+    return this.http.get(`${baseUrl}/games/search/${query}`)
+
+  }
+
 
    getGameById(id:string):Observable<GamesResponse>{
   //console.log('Hola')

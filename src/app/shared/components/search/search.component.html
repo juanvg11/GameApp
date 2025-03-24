@@ -2,11 +2,11 @@
   <input type="text" class="w-screen input mr-2"
   placeholder="Buscador..."
   autofocus
-  #txtSearch (keyup.enter)="onsearch(txtSearch.value)"
+  #txtSearch (keyup.enter)="value.emit(txtSearch.value)"
   >
 
 
-  <button class="btn btn-primary" (click)="onsearch(txtSearch.value)">Buscar
+  <button class="btn btn-primary" (click)="value.emit(txtSearch.value)">Buscar
   </button>
 </section>
 <div class="divider"></div>
