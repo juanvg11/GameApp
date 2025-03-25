@@ -47,7 +47,7 @@ export class GamesService {
 
     query = query.toLowerCase()
 
-    return this.http.get(`${baseUrl}/games/search/${query}`)
+    return this.http.get<GamesResponse[]>(`${baseUrl}/games/search/${query}`)
 
   }
 
@@ -60,6 +60,10 @@ export class GamesService {
 
 getFavorites(favorite:boolean){
   return this.http.get<GamesResponse[]>(`${baseUrl}/games/favorite/${favorite}`);
+}
+
+getVisibles(visible:boolean){
+  return this.http.get<GamesResponse[]>(`${baseUrl}/games/visible/${visible}`);
 }
 
 

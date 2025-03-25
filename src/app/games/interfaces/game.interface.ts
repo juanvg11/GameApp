@@ -11,6 +11,7 @@ export interface GamesResponse {
   image:        string[];
   favorite:     boolean;
   rating:       number;
+  isVisible:    boolean;
   createdAt:    Date;
   updatedAt:    Date;
   __v:          number;

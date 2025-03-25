@@ -5,6 +5,7 @@ import { CategoryPageComponent } from "./pages/category-page/category-page.compo
 import { GamePageComponent } from "./pages/game-page/game-page.component";
 import { NotFoundPageComponent } from "./pages/not-found-page/not-found-page.component";
 import { FavoritesPageComponent } from "./pages/FavoritesPage/FavoritesPage.component";
+import { VisiblePageComponent } from "./pages/VisiblePage/VisiblePage.component";
 
 
 
@@ -29,6 +30,10 @@ export const appFrontRoutes: Routes = [
     {
       path:'favorites',
       component: FavoritesPageComponent
+    },
+    {
+      path:'visible',
+      component: VisiblePageComponent
     },
   {
     path: '**',

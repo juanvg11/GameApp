@@ -1,8 +1,18 @@
 <div  class="card bg-base-100 shadow-sm animate-fadeIn">
-  <figure [routerLink]="['/game', game().uuid]" class="relative w-full aspect-[16/9] overflow-hidden cursor-pointer">
-    <img
+  <figure class="relative w-full aspect-[16/9] overflow-hidden cursor-pointer">
+    <img [routerLink]="['/game', game().uuid]"
       [src]=" game().image| gameImage"
       [alt]="game().title" />
+
+       <!-- Botón de favorito superpuesto -->
+    <button
+    class="absolute top-2 right-2 bg-white/60 hover:bg-white p-2 rounded-full text-xl transition-transform duration-300 ease-in-out transform"
+    [class.scale-110]="game().favorite"
+    [class.scale-100]="!game().favorite"
+    (click)="toggleFavorite(game().uuid)">
+    {{ game().favorite ? '♥️' : '♡' }}
+  </button>
+
   </figure>
   <div class="card-body">
     <h2 class="card-title text-accent text-xl">{{game().title}}</h2>
@@ -27,10 +37,16 @@
 </div>
 
        <!-- <button class="flex flex-auto text-2xl" (click)="ratingGame(game().uuid)">{{ game().rating }}</button> -->
-        <button class="text-2xl transition-transform duration-300 ease-in-out transform"
+      <!--   <button class="text-2xl transition-transform duration-300 ease-in-out transform"
         [class.scale-110]="game().favorite"
         [class.scale-100]="!game().favorite" (click)="toggleFavorite(game().uuid)">
           {{ game().favorite ? '♥️' : '♡' }}
+        </button> -->
+
+        <button class="text-2xl transition-transform duration-300 ease-in-out transform"
+        [class.scale-110]="game().isVisible"
+        [class.scale-100]="!game().isVisible" (click)="toggleVisible(game().uuid)">
+          {{ game().isVisible ? '✅' : '📋' }}
         </button>
 
 

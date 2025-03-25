@@ -4,7 +4,7 @@
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
       </div>
-      <ul
+   <!--    <ul
         tabindex="0"
         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li>
@@ -16,13 +16,33 @@
         <li>
           <a routerLink="/genre/indie" class="btn btn-ghost" routerLinkActive="text-secondary">Indie</a>
         </li>
+      </ul> -->
+
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        <li><a routerLink="/">Todos los juegos</a></li>
+        <li><a routerLink="/visible">Mi biblioteca de juegos</a></li>
+        <li>
+          <details>
+          <summary>Categoría</summary>
+          <ul class="p-2">
+            <li> <a routerLink="/genre/action">Accion</a></li>
+            <li><a routerLink="/genre/adventure">Aventura</a></li>
+            <li><a routerLink="/genre/indie">Indie</a></li>
+            <li><a routerLink="/genre/shooter">Shooter</a></li>
+          </ul>
+        </details>
+        </li>
+        <li><a routerLink="/favorites">Favoritos</a></li>
       </ul>
+
     </div>
     <a routerLink="/" class="btn btn-ghost text-xl"> <span class="text-secondary">VdeVelasco7</span></a>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <li>
+      <!-- <li>
         <a routerLink="/genre/action" class="btn btn-ghost" routerLinkActive="text-secondary">Accion</a>
       </li>
       <li>
@@ -30,10 +50,107 @@
       </li>
       <li>
         <a routerLink="/genre/indie" class="btn btn-ghost" routerLinkActive="text-secondary">Indie</a>
+      </li> -->
+
+      <li>
+        <details>
+          <summary>Categorías</summary>
+          <ul class="p-2 flex justify-center shadow-xl">
+            <li><a routerLink="/">Todas</a></li>
+            <li> <a routerLink="/genre/action">Accion</a></li>
+            <li><a routerLink="/genre/adventure">Aventura</a></li>
+            <li><a routerLink="/genre/indie">Indie</a></li>
+            <li><a routerLink="/genre/shooter">Shooter</a></li>
+          </ul>
+        </details>
       </li>
+      <li>
+        <details>
+        <summary>Rating</summary>
+        <ul class="p-2 flex justify-center shadow-xl">
+          <li><a>Mayor</a></li>
+          <li><a>Menor</a></li>
+        </ul>
+      </details>
+    </li>
+
     </ul>
+
+
   </div>
-  <div class="navbar-end">
-    <a routerLink="/favorites" class="btn">Mis favoritos</a>
+
+@if (isLargeScreen) {
+  <div class="navbar-end gap-2 hidden lg:flex">
+    <a
+      routerLink="/favorites"
+      class="px-4 py-2 bg-red-400 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 transition duration-300">
+      ❤️ Favoritos
+    </a>
+
+    <a
+      routerLink="/visible"
+      class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
+      🎮 Biblioteca
+    </a>
   </div>
+}@else {
+  <div class="navbar-end gap-2">
+    <a
+      routerLink="/favorites"
+      class="px-3 py-2 bg-red-100 rounded-lg shadow-md hover:bg-red-400 transition duration-300">
+      ❤️
+    </a>
+
+    <a
+      routerLink="/visible"
+      class="px-3 py-2 bg-blue-100 rounded-lg shadow-md hover:bg-blue-400 transition duration-300">
+      🎮
+    </a>
+  </div>
+}
+
+  <!-- <div class="navbar-end gap-2 hidden lg:flex">
+    <a
+      routerLink="/favorites"
+      class="px-4 py-2 bg-red-400 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 transition duration-300">
+      ❤️ Favoritos
+    </a>
+
+    <a
+      routerLink="/visible"
+      class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
+      🎮 Biblioteca
+    </a>
+  </div>
+
+  <div class="navbar-end gap-2">
+    <a
+      routerLink="/favorites"
+      class="px-3 py-2 bg-red-100 rounded-lg shadow-md hover:bg-red-400 transition duration-300">
+      ❤️
+    </a>
+
+    <a
+      routerLink="/visible"
+      class="px-3 py-2 bg-blue-100 rounded-lg shadow-md hover:bg-blue-400 transition duration-300">
+      🎮
+    </a>
+  </div> -->
+<!--   <div class="navbar-end flex gap-3">
+    <a
+      routerLink="/favorites"
+      class="px-4 py-2 bg-red-400 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 transition duration-300">
+      ❤️ Favoritos
+    </a>
+
+    <a
+      routerLink="/visible"
+      class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
+      🎮 Biblioteca
+    </a>
+  </div> -->
+
+
+
+
 </div>

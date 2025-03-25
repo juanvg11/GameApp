@@ -36,6 +36,15 @@ toggleFavorite(uuid: string) {
     });
 }
 
+toggleVisible(uuid: string) {
+  this.http.patch(`${baseUrl}/games/${uuid}/visible`, { isVisible: !this.game().isVisible })
+    .subscribe(response => {
+      this.game().isVisible = !this.game().isVisible;  // Cambiar el estado local
+      console.log('Visible actualizado:', this.game());
+      console.log('Respuesta Visible backend:',response)
+    });
+}
+
 /* ratingGame(uuid: string){
   this.http.patch(`${baseUrl}/games/${uuid}/rating`, { rating: 0 })
   .subscribe(response => {

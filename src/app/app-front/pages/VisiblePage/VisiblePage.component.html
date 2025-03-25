@@ -1,6 +1,5 @@
-<h1 class="text-3xl font-bold m-5">Listado de juegos</h1>
+<h1 class="text-3xl font-bold m-5">Mis juegos</h1>
 
-<!-- <app-search (value)="onsearch($event)"></app-search> -->
 <!-- <app-pagination></app-pagination> -->
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3">
@@ -8,9 +7,7 @@
 @for (game of this.gamesResource.value(); track game.uuid) {
   <game-card [game]="game"></game-card>
 } @empty {
-  <p>No hay juegos</p>
+  <p>No tienes juegos en tu lista</p>
 }
 
 </div>
-
-
