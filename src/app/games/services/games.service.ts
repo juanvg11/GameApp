@@ -47,7 +47,8 @@ export class GamesService {
 
     query = query.toLowerCase()
 
-    return this.http.get<GamesResponse[]>(`${baseUrl}/games/search/${query}`)
+      return this.http.get<GamesResponse[]>(`${baseUrl}/games/search/${query}`)
+
 
   }
 
