@@ -1,4 +1,4 @@
-<div class="navbar bg-base-100 shadow-sm">
+<div class="navbar bg-base-100 shadow-md sticky top-0 z-10">
   <div class="navbar-start">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -38,7 +38,7 @@
       </ul>
 
     </div>
-    <a routerLink="/" class="btn btn-ghost text-xl"> <span class="text-secondary">VdeVelasco7</span></a>
+    <a (click)="scrollToTop()" routerLink="/" class="btn btn-ghost text-xl"> <span class="text-secondary">VdeVelasco7</span></a>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">

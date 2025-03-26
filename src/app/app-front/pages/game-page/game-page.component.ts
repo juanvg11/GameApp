@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { GamesService } from '@games/services/games.service';
 import { ActivatedRoute } from '@angular/router';
@@ -6,12 +6,16 @@ import { CommonModule } from '@angular/common';
 import { EMPTY, map, switchMap, tap } from 'rxjs';
 import { GameCarouselComponent } from '@games/components/game-carousel/game-carousel.component';
 
+
+
+
 @Component({
   selector: 'app-game-page',
   imports: [CommonModule, GameCarouselComponent],
   templateUrl: './game-page.component.html',
 })
 export class GamePageComponent {
+
 
   activatedRoute = inject(ActivatedRoute);
   gameService = inject(GamesService);
@@ -30,6 +34,8 @@ export class GamePageComponent {
       })
     )
   });
+
+
 
 
 

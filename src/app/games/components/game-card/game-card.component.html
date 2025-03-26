@@ -1,4 +1,4 @@
-<div  class="card bg-base-100 shadow-sm animate-fadeIn">
+<div  class="card bg-base-100 shadow-md animate-fadeIn">
   <figure class="relative w-full aspect-[16/9] overflow-hidden cursor-pointer">
     <img [routerLink]="['/game', game().uuid]"
       [src]=" game().image| gameImage"
@@ -15,7 +15,7 @@
 
   </figure>
   <div class="card-body">
-    <h2 class="card-title text-accent text-xl">{{game().title}}</h2>
+    <h2 class="card-title text-slate-400 text-xl">{{game().title}}</h2>
     <p>{{game().description | slice: 0 : 70}} ...</p>
     <div class="card-actions justify-end">
 
