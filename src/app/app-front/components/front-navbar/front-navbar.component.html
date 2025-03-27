@@ -20,14 +20,14 @@
 
       <ul
         tabindex="0"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-21 mt-3 w-52 p-2 shadow">
         <li><a routerLink="/">Todos los juegos</a></li>
         <li><a routerLink="/visible">Mi biblioteca de juegos</a></li>
         <li>
           <details>
           <summary>Categoría</summary>
-          <ul class="p-2">
-            <li> <a routerLink="/genre/action">Accion</a></li>
+          <ul class="p-2 text-xl">
+            <li class="text-xl"> <a routerLink="/genre/action">Accion</a></li>
             <li><a routerLink="/genre/adventure">Aventura</a></li>
             <li><a routerLink="/genre/indie">Indie</a></li>
             <li><a routerLink="/genre/shooter">Shooter</a></li>
@@ -42,16 +42,6 @@
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <!-- <li>
-        <a routerLink="/genre/action" class="btn btn-ghost" routerLinkActive="text-secondary">Accion</a>
-      </li>
-      <li>
-        <a routerLink="/genre/adventure" class="btn btn-ghost" routerLinkActive="text-secondary">Aventura</a>
-      </li>
-      <li>
-        <a routerLink="/genre/indie" class="btn btn-ghost" routerLinkActive="text-secondary">Indie</a>
-      </li> -->
-
       <li>
         <details>
           <summary>Categorías</summary>
@@ -73,7 +63,6 @@
         </ul>
       </details>
     </li>
-
     </ul>
 
 

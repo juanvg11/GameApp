@@ -3,6 +3,31 @@
 <app-search (value)="query.set($event)"></app-search>
 <!-- <app-pagination></app-pagination> -->
 
+
+<ul class="menu menu-horizontal px-1">
+  <li class="z-10">
+    <details>
+      <summary>Categorías</summary>
+      <ul class="flex justify-center shadow-xl text-xs border border-white m-0">
+        <li><a routerLink="/">Todas</a></li>
+        <li> <a routerLink="/genre/action">Accion</a></li>
+        <li><a routerLink="/genre/adventure">Aventura</a></li>
+        <li><a routerLink="/genre/indie">Indie</a></li>
+        <li><a routerLink="/genre/shooter">Shooter</a></li>
+      </ul>
+    </details>
+  </li>
+  <li>
+    <details>
+    <summary>Rating</summary>
+    <ul class="p-2 flex justify-center shadow-xl">
+      <li><a>Mayor</a></li>
+      <li><a>Menor</a></li>
+    </ul>
+  </details>
+</li>
+</ul>
+
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3">
 
 

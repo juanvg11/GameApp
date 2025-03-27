@@ -8,12 +8,13 @@ import { firstValueFrom, of, tap } from 'rxjs';
 import { PaginationComponent } from '@shared/components/pagination/pagination.component';
 import { SearchComponent } from '@shared/components/search/search.component';
 import { GamesResponse } from '@games/interfaces/game.interface';
+import { RouterLink } from '@angular/router';
 
 
 
 @Component({
   selector: 'app-home-page',
-  imports: [GameCardComponent, CommonModule, SearchComponent],
+  imports: [GameCardComponent, CommonModule, SearchComponent, RouterLink],
   templateUrl: './home-page.component.html',
 })
 export class HomePageComponent {
