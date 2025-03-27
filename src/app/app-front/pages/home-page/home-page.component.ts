@@ -9,12 +9,14 @@ import { PaginationComponent } from '@shared/components/pagination/pagination.co
 import { SearchComponent } from '@shared/components/search/search.component';
 import { GamesResponse } from '@games/interfaces/game.interface';
 import { RouterLink } from '@angular/router';
+import { CategorySelectComponent } from '@shared/components/category-select/category-select.component';
+import { ListGameComponent } from '@games/components/list-game/list-game.component';
 
 
 
 @Component({
   selector: 'app-home-page',
-  imports: [GameCardComponent, CommonModule, SearchComponent, RouterLink],
+  imports: [ CommonModule, CategorySelectComponent, ListGameComponent],
   templateUrl: './home-page.component.html',
 })
 export class HomePageComponent {
@@ -42,26 +44,7 @@ gamesResource = rxResource({
   }
   });
 
-/* isLoading = signal(false)
-isError = signal<string|null>(null)
-games = signal<GamesResponse[]>([])
 
-
-onsearch(query: string){
-
-  if( this.isLoading()) return
-
-  this.isLoading.set(true)
-  this.isError.set(null)
-
-  this.GamesService.searchByGame(query)
-  .subscribe(games => {
-    this.isLoading.set(false)
-    this.games.set(games)
-
-    console.log(games)
-  })
-} */
 
 
 

@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { GamesService } from '../../../games/services/games.service';
 import { GameCardComponent } from '@games/components/game-card/game-card.component';
+import { ListGameComponent } from '@games/components/list-game/list-game.component';
 
 @Component({
   selector: 'app-favorites-page',
-  imports: [GameCardComponent],
+  imports: [ListGameComponent, GameCardComponent],
   templateUrl: './FavoritesPage.component.html',
 })
 export class FavoritesPageComponent {

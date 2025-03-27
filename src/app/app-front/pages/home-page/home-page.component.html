@@ -1,10 +1,11 @@
 <h1 class="text-3xl font-bold m-5">Listado de juegos</h1>
+<category-select class="navbar-center hidden lg:flex menu menu-horizontal px-1 z-999"></category-select>
+<list-game></list-game>
 
-<app-search (value)="query.set($event)"></app-search>
+<!-- <app-search (value)="query.set($event)"></app-search> -->
 <!-- <app-pagination></app-pagination> -->
 
-
-<ul class="menu menu-horizontal px-1">
+<!-- <ul class="menu menu-horizontal px-1">
   <li class="z-10">
     <details>
       <summary>Categorías</summary>
@@ -26,11 +27,9 @@
     </ul>
   </details>
 </li>
-</ul>
+</ul> -->
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3">
-
-
+<!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3">
 
   @for (game of this.searchResource.value(); track game.uuid) {
     <game-card [game]="game"></game-card>
@@ -40,6 +39,7 @@
       <game-card [game]="game"></game-card>
   }
 }
+</div> -->
 
 
 
@@ -64,6 +64,5 @@
 
 
 
-</div>
 
 
