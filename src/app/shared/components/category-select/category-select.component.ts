@@ -8,4 +8,7 @@ import { RouterLink } from '@angular/router';
   ],
   templateUrl: './category-select.component.html',
 })
-export class CategorySelectComponent { }
+export class CategorySelectComponent {
+
+
+}

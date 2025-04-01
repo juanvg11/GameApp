@@ -16,7 +16,7 @@ import { ListGameComponent } from '@games/components/list-game/list-game.compone
 
 @Component({
   selector: 'app-home-page',
-  imports: [ CommonModule, CategorySelectComponent, ListGameComponent],
+  imports: [ CommonModule, ListGameComponent],
   templateUrl: './home-page.component.html',
 })
 export class HomePageComponent {
