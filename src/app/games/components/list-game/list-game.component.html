@@ -12,4 +12,8 @@
     @for (game of this.gamesResource.value(); track game.uuid) {
       <game-card [game]="game"></game-card>
   }
+
+  <!-- @for (game of this.gamesFavorite.value(); track game.uuid) {
+    <game-card [game]="game"></game-card>
+} -->
 }

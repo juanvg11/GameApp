@@ -19,7 +19,7 @@ export class ListGameComponent {
     request:() => ({query: this.query() }),
     loader: ({request}) => {
       if(!request.query) return of([]) //Importantisimo, ya que si no hay nada para buscar falla la consulta http://localhost:5001/games/search/????
-      return this.GamesService.searchByGame(request.query)
+      return this.GamesService.getGames({search: request.query})
 
     }
 
@@ -33,13 +33,5 @@ export class ListGameComponent {
       return this.GamesService.getGames({})
     }
     });
-
-    gamesFavorite = rxResource({
-      request:() => ({}),
-      loader:({request}) => {
-
-        return this.GamesService.getFavorites(true);
-      }
-      });
 
  }

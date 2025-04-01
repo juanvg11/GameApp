@@ -9,6 +9,8 @@ const baseUrl = environments.baseUrl
 
 interface Options {
   genre?: string;
+  favorite?: boolean;
+  search?:string
 }
 
 @Injectable({providedIn: 'root'})
@@ -28,12 +30,11 @@ export class GamesService {
 } */
 
   getGames(options: Options):Observable<GamesResponse[]>{
-    const { genre = '' } = options;
 
     return this.http.get<GamesResponse[]>(`${baseUrl}/games`, {
         params: {
-          genre,
-        },
+          ...options
+        }
       })
     .pipe(tap(resp => console.log(resp)));
   }
@@ -57,10 +58,6 @@ export class GamesService {
   //console.log('Hola')
   return this.http.get<GamesResponse>(`${baseUrl}/games/${id}`);
 
-}
-
-getFavorites(favorite:boolean){
-  return this.http.get<GamesResponse[]>(`${baseUrl}/games/favorite/${favorite}`);
 }
 
 getVisibles(visible:boolean){

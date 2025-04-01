@@ -6,7 +6,7 @@ import { ListGameComponent } from '@games/components/list-game/list-game.compone
 
 @Component({
   selector: 'app-favorites-page',
-  imports: [ListGameComponent, GameCardComponent],
+  imports: [GameCardComponent],
   templateUrl: './FavoritesPage.component.html',
 })
 export class FavoritesPageComponent {
@@ -17,7 +17,7 @@ export class FavoritesPageComponent {
     request:() => ({}),
     loader:({request}) => {
 
-      return this.GamesService.getFavorites(true);
+      return this.GamesService.getGames({ favorite: true });
     }
     });
 

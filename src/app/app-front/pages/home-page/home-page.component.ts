@@ -21,35 +21,4 @@ import { ListGameComponent } from '@games/components/list-game/list-game.compone
 })
 export class HomePageComponent {
 
-GamesService = inject(GamesService);
-query = signal('')
-
-
-searchResource = rxResource({
-  request:() => ({query: this.query() }),
-  loader: ({request}) => {
-    if(!request.query) return of([]) //Importantisimo, ya que si no hay nada para buscar falla la consulta http://localhost:5001/games/search/????
-    return this.GamesService.searchByGame(request.query)
-
-  }
-
-})
-
-gamesResource = rxResource({
-  request:() => ({}),
-  loader:({request}) => {
-
-   // console.log(request)
-    return this.GamesService.getGames({})
-  }
-  });
-
-
-
-
-
-
-
-
-
 }
