@@ -16,7 +16,7 @@ export class VisiblePageComponent {
     request:() => ({}),
     loader:({request}) => {
 
-      return this.GamesService.getVisibles(true);
+      return this.GamesService.getGames({visible: true});
     }
     });
 

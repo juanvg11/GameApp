@@ -10,7 +10,8 @@ const baseUrl = environments.baseUrl
 interface Options {
   genre?: string;
   favorite?: boolean;
-  search?:string
+  search?:string;
+  visible?:boolean;
 }
 
 @Injectable({providedIn: 'root'})
@@ -18,11 +19,6 @@ export class GamesService {
 
 
   private http = inject(HttpClient);
-
-
-
-
-
 
 /* getGames():Observable<GamesResponse[]>{
   return this.http.get<GamesResponse[]>(`${baseUrl}/games`)
@@ -40,18 +36,18 @@ export class GamesService {
   }
 
    // Método para obtener juegos por género
-   getGamesByGenre(genre: string): Observable<GamesResponse[]> {
+  /*  getGamesByGenre(genre: string): Observable<GamesResponse[]> {
     return this.http.get<GamesResponse[]>(`${baseUrl}/games/genre/${genre}`);
-  }
+  } */
 
-  searchByGame( query: string){
+ /*  searchByGame( query: string){
 
     query = query.toLowerCase()
 
       return this.http.get<GamesResponse[]>(`${baseUrl}/games/search/${query}`)
 
 
-  }
+  } */
 
 
    getGameById(id:string):Observable<GamesResponse>{
@@ -60,9 +56,9 @@ export class GamesService {
 
 }
 
-getVisibles(visible:boolean){
+/* getVisibles(visible:boolean){
   return this.http.get<GamesResponse[]>(`${baseUrl}/games/visible/${visible}`);
-}
+} */
 
 
 }
