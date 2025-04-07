@@ -4,10 +4,13 @@
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3">
 
-@for (game of this.gamesResource.value(); track game.uuid) {
+@for (game of this.gamesResource.value()?.games; track game.uuid) {
   <game-card [game]="game"></game-card>
 } @empty {
   <p>No tienes juegos en tu lista</p>
 }
-
 </div>
+
+<app-pagination [pages]="gamesResource.value()?.pages ?? 0"
+[currentPage]="paginationService.currentPage()" class="flex justify-center items-center mt-4 mb-10"></app-pagination>
+

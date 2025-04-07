@@ -1,21 +1,27 @@
 <!-- Lo necesita porque si no no tiene el valor para buscar -->
+<h1 class="text-3xl font-bold m-5">Listado de juegos {{paginationService.currentPage()}}</h1>
+
 <app-search (value)="query.set($event)"></app-search>
+
 
 <category-select class="navbar-center menu menu-horizontal px-1"></category-select>
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3">
 
-  @for (game of this.searchResource.value(); track game.uuid) {
+  @for (game of searchResource.value()?.games; track $index) {
     <game-card [game]="game"></game-card>
   } @empty {
 
     <!-- Como muestro favoritos? -->
 
-    @for (game of this.gamesResource.value(); track game.uuid) {
+    @for (game of gamesResource.value()?.games; track $index) {
       <game-card [game]="game"></game-card>
   }
 
-  <!-- @for (game of this.gamesFavorite.value(); track game.uuid) {
-    <game-card [game]="game"></game-card>
-} -->
 }
+</div>
+
+<app-pagination [pages]="gamesResource.value()?.pages ?? 0"
+[currentPage]="paginationService.currentPage()" class="flex justify-center items-center mt-4 mb-10"></app-pagination>
+
+

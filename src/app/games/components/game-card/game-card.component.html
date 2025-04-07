@@ -26,6 +26,7 @@
   {{ game().rating }}
 </button> -->
 
+
 <div class="flex flex-auto">
   <span
     *ngFor="let value of [ 2, 4, 6, 8, 10]"
@@ -34,6 +35,21 @@
     [ngClass]="{'text-yellow-500': game().rating >= value, 'text-gray-400': game().rating < value}">
     ★
   </span>
+
+
+<!--   <div class="rating rating-lg rating-half">
+    <input type="radio" name="rating-11" class="rating-hidden" />
+    <input type="radio" name="rating-11" class="mask mask-star-2 mask-half-1 bg-yellow-500" aria-label="0.5 star" />
+    <input type="radio" name="rating-11" class="mask mask-star-2 mask-half-2 bg-yellow-500" aria-label="1 star" />
+    <input type="radio" name="rating-11" class="mask mask-star-2 mask-half-1 bg-yellow-500" aria-label="1.5 star" checked="checked" />
+    <input type="radio" name="rating-11" class="mask mask-star-2 mask-half-2 bg-yellow-500" aria-label="2 star" />
+    <input type="radio" name="rating-11" class="mask mask-star-2 mask-half-1 bg-yellow-500" aria-label="2.5 star" />
+    <input type="radio" name="rating-11" class="mask mask-star-2 mask-half-2 bg-yellow-500" aria-label="3 star" />
+    <input type="radio" name="rating-11" class="mask mask-star-2 mask-half-1 bg-yellow-500" aria-label="3.5 star" />
+    <input type="radio" name="rating-11" class="mask mask-star-2 mask-half-2 bg-yellow-500" aria-label="4 star" />
+    <input type="radio" name="rating-11" class="mask mask-star-2 mask-half-1 bg-yellow-500" aria-label="4.5 star" />
+    <input type="radio" name="rating-11" class="mask mask-star-2 mask-half-2 bg-yellow-500" aria-label="5 star" />
+  </div> -->
 </div>
 
        <!-- <button class="flex flex-auto text-2xl" (click)="ratingGame(game().uuid)">{{ game().rating }}</button> -->

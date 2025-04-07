@@ -35,10 +35,6 @@ export class GamePageComponent {
     )
   });
 
-
-
-
-
 /*   gamesResource = rxResource({
     request: () => ({ id: this.gameId }),
     loader: ({ request }) =>

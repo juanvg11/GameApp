@@ -1,16 +1,16 @@
 <h1 class="text-3xl font-bold m-5">Juegos <span class="text-xl text-secondary m-2">{{genre()}}</span></h1>
 
-
-
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3">
-
-@for (game of this.gamesResource.value(); track game.uuid) {
+@for (game of this.gamesResource.value()?.games; track game.uuid) {
   <game-card [game]="game"></game-card>
 } @empty {
   <p class="m-5">No hay juegos de la categoria <span class="font-bold text-red-500">{{genre()}}</span></p>
 }
-
 </div>
+
+<app-pagination [pages]="gamesResource.value()?.pages ?? 0"
+[currentPage]="paginationService.currentPage()" class="flex justify-center items-center mt-4 mb-10"></app-pagination>
+
 
 
 

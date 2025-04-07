@@ -1,16 +1,8 @@
-import { Component, inject, resource, signal } from '@angular/core';
-import { GameCardComponent } from '@games/components/game-card/game-card.component';
-import { GamesService } from '../../../games/services/games.service';
-import { rxResource } from '@angular/core/rxjs-interop';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { firstValueFrom, of, tap } from 'rxjs';
-import { PaginationComponent } from '@shared/components/pagination/pagination.component';
-import { SearchComponent } from '@shared/components/search/search.component';
-import { GamesResponse } from '@games/interfaces/game.interface';
-import { RouterLink } from '@angular/router';
-import { CategorySelectComponent } from '@shared/components/category-select/category-select.component';
 import { ListGameComponent } from '@games/components/list-game/list-game.component';
+import { PaginationComponent } from '@shared/components/pagination/pagination.component';
 
 
 
