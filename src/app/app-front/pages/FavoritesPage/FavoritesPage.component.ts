@@ -22,7 +22,7 @@ export class FavoritesPageComponent {
 
       return this.GamesService.getGames({
         favorite: true,
-        offset: request.page * 9,
+        offset: request.page * 8,
         limit: 8
 
        });

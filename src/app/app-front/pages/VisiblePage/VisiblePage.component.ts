@@ -22,7 +22,7 @@ export class VisiblePageComponent {
 
       return this.GamesService.getGames({
         visible: true,
-        offset: request.page * 9,
+        offset: request.page * 8,
         limit: 8,
       });
     }
