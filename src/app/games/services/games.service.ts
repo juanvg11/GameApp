@@ -34,8 +34,8 @@ export class GamesService {
 
   getGames(options: Options):Observable<GameResponse>{
 
-    const { limit = 0, offset = 0, genre = '', search = '', visible = false } = options;
-    const key = `${limit}-${offset}-${genre}-${search}-${visible}`;
+    const { limit = 0, offset = 0, genre = '', search = '', visible = false, favorite = false } = options;
+    const key = `${limit}-${offset}-${genre}-${search}-${visible}-${favorite}`;
     if (this.gamesCache.has(key)) {
       return of(this.gamesCache.get(key)!);
     }

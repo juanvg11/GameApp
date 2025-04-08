@@ -14,14 +14,14 @@
 
     <!-- Como muestro favoritos? -->
 
-    @for (game of gamesResource.value()?.games; track $index) {
+    @for (game of gamesResourceList.value()?.games; track $index) {
       <game-card [game]="game"></game-card>
   }
 
 }
 </div>
 
-<app-pagination [pages]="gamesResource.value()?.pages ?? 0"
+<app-pagination [pages]="gamesResourceList.value()?.pages ?? 0"
 [currentPage]="paginationService.currentPage()" class="flex justify-center items-center mt-4 mb-10"></app-pagination>
 
 

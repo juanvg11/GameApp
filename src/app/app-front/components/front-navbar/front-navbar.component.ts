@@ -5,7 +5,7 @@ import { CategorySelectComponent } from '@shared/components/category-select/cate
 
 @Component({
   selector: 'front-navbar',
-  imports: [RouterLink],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './front-navbar.component.html',
 })
 export class FrontNavbarComponent {

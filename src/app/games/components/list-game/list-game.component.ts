@@ -44,7 +44,7 @@ export class ListGameComponent {
 
   })
 
-  gamesResource = rxResource({
+  gamesResourceList = rxResource({
     request:() => ({ pages: this.paginationService.currentPage() -1 }),
     loader:({request}) => {
 
