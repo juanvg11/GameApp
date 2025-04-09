@@ -12,3 +12,9 @@
     src: url('/assets/fonts/Montserrat/Montserrat-Medium.ttf') format('truetype');
   }
 } */
+
+/* html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+} */
