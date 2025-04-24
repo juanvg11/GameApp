@@ -1,5 +1,6 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { AuthService } from '@auth/services/auth.service';
 import { CategorySelectComponent } from '@shared/components/category-select/category-select.component';
 
 
@@ -9,6 +10,8 @@ import { CategorySelectComponent } from '@shared/components/category-select/cate
   templateUrl: './front-navbar.component.html',
 })
 export class FrontNavbarComponent {
+
+  authService = inject(AuthService);
 
   isLargeScreen: boolean = window.innerWidth >= 1024; // Tamaño de pantalla para lg
 

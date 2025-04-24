@@ -94,6 +94,20 @@
     </div>
     <a (click)="scrollToTop()" routerLink="/" class="btn btn-ghost text-xl"> <span class="text-secondary">VdeVelasco7</span></a>
   </div>
+  <div class="navbar-end gap-4">
+
+    @if( authService.authStatus() === 'authenticated'){
+      <button class="btn btn-ghost">
+        {{ authService.user()?.name}}
+      </button>
+      <button class="btn btn-sm btn-error" (click)="authService.logout()">Salir</button>
+    } @else if (authService.authStatus() === 'not-authenticated') {
+      <a routerLink="/auth/login" class="btn  btn-secondary">Login</a>
+    } @else {
+      <a routerLink="/auth/register" class="btn  btn-secondary">Registro</a>
+    }
+  </div>
+
 </div>
 
 } @else {
