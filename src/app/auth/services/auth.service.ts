@@ -42,10 +42,25 @@ export class AuthService {
        password: password
       }).pipe(
         map(resp => this.handleAuthSuccess(resp)),
-        catchError((error: any) => this.handleAuthError(error))
+        catchError((error: any) =>
+          this.handleAuthError(error)
+      )
 
       )
   };
+
+  register( name: string, email: string, password: string): Observable<boolean> {
+    return this.http
+      .post<AuthResponse>(`${baseUrl}/auth/register`, {
+        email: email,
+        password: password,
+        name: name
+      })
+      .pipe(
+        map(resp => this.handleAuthSuccess(resp)),
+        catchError((error: any) => this.handleAuthError(error))
+      )
+  }
 
   checkStatus(): Observable<boolean> {
 
@@ -71,7 +86,7 @@ export class AuthService {
     this._token.set(null);
     this._authStatus.set('not-authenticated');
 
-    //localStorage.removeItem('token');
+    localStorage.removeItem('token');
   }
 
   private handleAuthSuccess({ token, user }: AuthResponse) {
@@ -86,6 +101,7 @@ export class AuthService {
 
   private handleAuthError(error: any) {
     this.logout();
+    console.log('Error en la autenticacion', error);
     return of(false);
   }
 

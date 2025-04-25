@@ -36,8 +36,13 @@ export class LoginPageComponent {
 
     this.AuthService.login(email!, password!)
     .subscribe((isAuthenticated) => {
-      this.router.navigateByUrl('/');
+      /* Fernando dejaba esta linea de codigo aqui, y si el login era incorrecto se accedia al home pero sin estar registrado.
+      De esta manera el usuario no se entera bien de que el login ha sido erroneo
+      Ahora se manda un mensaje de error si no ha sido autenticado correctamente*/
+      //this.router.navigateByUrl('/');
       if (isAuthenticated) {
+        this.router.navigateByUrl('/');
+        console.log('Usuario loggeado');
         return
       }
 
