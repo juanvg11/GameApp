@@ -15,6 +15,11 @@ canMatch: [
 ]
   },
 
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin-dashboard/admin-dashboard.routes'),
+  },
+
 
   {
     path:'',
