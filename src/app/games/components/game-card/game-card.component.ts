@@ -1,6 +1,6 @@
 import { CommonModule, SlicePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, input } from '@angular/core';
+import { Component, inject, Input, input } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { Game } from '@games/interfaces/game.interface';
@@ -8,6 +8,7 @@ import { GameImagePipe } from '@games/pipes/game-image.pipe';
 import { environments } from 'src/environments/environments';
 import { GamesService } from '../../../games/services/games.service';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '@auth/services/auth.service';
 
 
 // 'http://localhost:5001'
@@ -22,7 +23,9 @@ const baseUrl = environments.baseUrl
 export class GameCardComponent {
 
 
-  constructor(private http: HttpClient) {}
+
+
+constructor(private http: HttpClient) {}
 
 game = input.required<Game>()
 ratingValue: number = 0;

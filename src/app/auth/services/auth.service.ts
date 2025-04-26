@@ -41,11 +41,18 @@ export class AuthService {
       email: email,
        password: password
       }).pipe(
+        tap(resp => console.log(resp.user.name)),
+        tap(resp => console.log(resp.user.email)),
+        tap(resp => console.log(resp.user.favorites)),
+        tap(resp => console.log(resp.user._id)),
+        tap(resp => console.log(resp.user.library)),
+        tap(resp => console.log(resp.user.roles)),
+        tap(resp => console.log(resp)),
+
         map(resp => this.handleAuthSuccess(resp)),
         catchError((error: any) =>
           this.handleAuthError(error)
       )
-
       )
   };
 
@@ -79,6 +86,12 @@ export class AuthService {
       catchError((error: any) => this.handleAuthError(error))
     )
 
+  }
+
+  //GPT
+  getUserId(): string | null {
+    const user = this._user();  // Accedemos al estado del usuario
+    return user ? user._id : null;  // Devuelve el ID del usuario, o null si no está logueado
   }
 
   logout() {

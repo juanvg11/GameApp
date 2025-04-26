@@ -27,10 +27,7 @@ export class GamesService {
   private gameCache = new Map<string, Game>();
 
 
-/* getGames():Observable<GamesResponse[]>{
-  return this.http.get<GamesResponse[]>(`${baseUrl}/games`)
-  .pipe(tap(resp => console.log(resp)));
-} */
+
 
   getGames(options: Options):Observable<GameResponse>{
 
@@ -51,21 +48,6 @@ export class GamesService {
     );
   }
 
-   // Método para obtener juegos por género
-  /*  getGamesByGenre(genre: string): Observable<GamesResponse[]> {
-    return this.http.get<GamesResponse[]>(`${baseUrl}/games/genre/${genre}`);
-  } */
-
- /*  searchByGame( query: string){
-
-    query = query.toLowerCase()
-
-      return this.http.get<GamesResponse[]>(`${baseUrl}/games/search/${query}`)
-
-
-  } */
-
-
    getGameById(id:string):Observable<Game>{
   if (this.gameCache.has(id)) {
     return of(this.gameCache.get(id)!);
@@ -78,9 +60,58 @@ export class GamesService {
 
 }
 
+
+
+//GPT
+// Método para añadir un juego a la biblioteca
+addGameToLibrary(userId: string, gameId: string): Observable<any> {
+  return this.http.post(`${baseUrl}/auth/${userId}/library/${gameId}`, {});
+}
+//GPT
+// Método para eliminar un juego de la biblioteca
+removeGameFromLibrary(userId: string, gameId: string): Observable<any> {
+  return this.http.delete(`${baseUrl}/auth/${userId}/library/${gameId}`);
+}
+//GPT
+// Método para alternar el estado de favorito
+toggleFavorite(userId: string, gameId: string): Observable<any> {
+  return this.http.post(`${baseUrl}/auth/${userId}/favorites/${gameId}`, {});
+}
+
+//GPT
+// Obtener la librería de juegos del usuario
+getUserLibrary(userId: string): Observable<any> {
+  return this.http.get(`${baseUrl}/auth/${userId}/library`);
+}
+
+//GPT
+// Alternar un juego entre favoritos
+toggleFavorite2(userId: string, gameId: string): Observable<any> {
+  return this.http.patch(`${baseUrl}/users/${userId}/favorites/${gameId}`, {});
+}
+
+/* getGames():Observable<GamesResponse[]>{
+  return this.http.get<GamesResponse[]>(`${baseUrl}/games`)
+  .pipe(tap(resp => console.log(resp)));
+} */
+
 /* getVisibles(visible:boolean){
   return this.http.get<GamesResponse[]>(`${baseUrl}/games/visible/${visible}`);
 } */
+
+     // Método para obtener juegos por género
+  /*  getGamesByGenre(genre: string): Observable<GamesResponse[]> {
+    return this.http.get<GamesResponse[]>(`${baseUrl}/games/genre/${genre}`);
+  } */
+
+ /*  searchByGame( query: string){
+
+    query = query.toLowerCase()
+
+      return this.http.get<GamesResponse[]>(`${baseUrl}/games/search/${query}`)
+
+
+  } */
 
 
 }

@@ -9,12 +9,14 @@
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3">
 
   @for (game of searchResource.value()?.games; track $index) {
+
     <game-card [game]="game"></game-card>
   } @empty {
 
     <!-- Como muestro favoritos? -->
 
     @for (game of gamesResourceList.value()?.games; track $index) {
+
       <game-card [game]="game"></game-card>
   }
 

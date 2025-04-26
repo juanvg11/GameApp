@@ -1,7 +1,9 @@
 export interface User {
-  id: string;
+  _id: string;
   email: string;
   name: string;
   isActive: boolean;
   roles: string[];
+  library: string[];
+  favorites: string[];
 }
