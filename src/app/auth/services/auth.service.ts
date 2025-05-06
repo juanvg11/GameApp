@@ -34,6 +34,7 @@ export class AuthService {
   Son similares a getters*/
   user = computed(() => this._user());
   token = computed(() => this._token());
+  isAdmin = computed(() =>this._user()?.roles.includes('admin') ?? false);
 
   login( email: string, password: string): Observable<boolean> {
     return this.http
@@ -69,6 +70,9 @@ export class AuthService {
       )
   }
 
+
+  /* TODO; implementar cache como en el game.service
+  288. Authorization - IsAdminGuard min 6:02 */
   checkStatus(): Observable<boolean> {
 
     const token = localStorage.getItem('token');
@@ -76,6 +80,8 @@ export class AuthService {
       this.logout();
       return of(false);
     }
+
+
 
     return this.http.get<AuthResponse>(`${baseUrl}/auth/check-token`, {
       /* headers: {

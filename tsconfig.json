@@ -10,6 +10,7 @@
       "@games/*":["./src/app/games/*"],
       "@shared/*":["./src/app/shared/*"],
       "@app-front/*":["./src/app/app-front/*"],
+      "@utils/*":["./src/app/utils/*"],
     },
     "outDir": "./dist/out-tsc",
     "strict": true,

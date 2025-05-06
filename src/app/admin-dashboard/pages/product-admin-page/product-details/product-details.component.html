@@ -1,0 +1,172 @@
+<h1 class="text-2xl font-bold">{{ game().title }}</h1>
+<div class="divider"></div>
+
+<form
+[formGroup]="productForm"
+class="grid grid-cols-1 sm:grid-cols-2 gap-4"
+(ngSubmit)="onSubmit()">
+
+  <!-- Datos generales -->
+  <div class="flex flex-col gap-2">
+    <h2 class="text-2xl font-bold h-12">Datos generales</h2>
+    <input
+      type="text"
+      placeholder="Título"
+      class="input input-bordered w-full bg-slate-900 "
+      formControlName="title"
+      [class.border-red-500]="productForm.get('title')?.errors ?? false"
+    />
+    <form-error-label [control]="productForm.get('title')!"></form-error-label>
+
+    <input type="text" placeholder="Uuid" class="input input-bordered w-full bg-slate-900" formControlName="uuid"
+    [class.border-red-500]="productForm.get('uuid')?.errors ?? false"
+    />
+    <form-error-label [control]="productForm.get('uuid')!"></form-error-label>
+
+    <textarea
+      class="textarea w-full textarea-bordered bg-slate-900"
+      placeholder="Descripción"
+      rows="1"
+      formControlName="description"
+      [class.border-red-500]="productForm.get('description')?.errors ?? false"
+    ></textarea>
+    <form-error-label [control]="productForm.get('description')!"></form-error-label>
+
+    <select class="select select-bordered w-36 bg-slate-900" formControlName="genre">
+  <option value="action">accion</option>
+  <option value="adventure">aventura</option>
+  <option value="rpg">RPG</option>
+  <option value="strategy">estrategia</option>
+  <option value="simulation">simulación</option>
+  <option value="sports">deportes</option>
+  <option value="racing">carreras</option>
+  <option value="fighting">lucha</option>
+  <option value="horror">terror</option>
+  <option value="platformer">plataformas</option>
+  <option value="shooter">shooter</option>
+  <option value="indie">indie</option>
+  <option value="survival">supervivencia</option>
+  <option value="open-world">mundo abierto</option>
+  <option value="battle-royale">battle royale</option>
+
+
+</select>
+
+    <h2 class="text-lg font-bold">Información de publicación</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <input
+      type="number"
+      placeholder="Año de publicación"
+      class="input input-bordered w-full bg-slate-900"
+      formControlName="release_year"
+    />
+
+    <select class="select select-bordered w-full bg-slate-900" formControlName="platforms">
+      <option value="">Plataforma</option>
+      <option value="PS5">PS5</option>
+      <option value="PS4">PS4</option>
+      <option value="PS3">PS3</option>
+      <option value="PS2">PS2</option>
+      <option value="PS1">PS1</option>
+      <option value="PSP">PSP</option>
+      <option value="Xbox Series X">Xbox Series X</option>
+      <option value="Xbox Series S">Xbox Series S</option>
+      <option value="Xbox One">XboxOne</option>
+      <option value="Xbox 360">Xbox 360</option>
+      <option value="Nintendo Switch">Nintendo Switch</option>
+      <option value="PC">PC</option>
+      <option value="Nintendo 3DS">Nintendo 3DS</option>
+      <option value="Nintendo Wii U">Nintendo Wii U</option>
+    </select>
+    </div>
+
+      <input
+      type="text"
+      placeholder="Desarrollador"
+      class="input input-bordered w-full bg-slate-900"
+      formControlName="developer"
+    />
+
+    <input
+    type="text"
+    placeholder="Publisher"
+    class="input input-bordered w-full bg-slate-900"
+    formControlName="publisher"
+  />
+
+
+
+  <h2 class="text-lg font-bold">Datos de usuario</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
+
+    <div class="flex gap-4">
+      <span class=" label-text">Favorito:</span>
+      <label class="label cursor-pointer">
+        <span class="mr-2 text-sm">No</span>
+        <input type="radio"
+               [value]="false"
+               class="radio"
+               formControlName="favorite" />
+      </label>
+      <label class="label cursor-pointer">
+        <span class="mr-2 text-sm">Sí</span>
+        <input type="radio"
+               [value]="true"
+               class="radio"
+               formControlName="favorite" />
+      </label>
+    </div>
+
+    <div class="flex gap-4">
+      <span class=" label-text">Visible:</span>
+      <label class="label cursor-pointer">
+        <span class="mr-2 text-sm">No</span>
+        <input type="radio" [value]="false" class="radio" formControlName="isVisible" />
+      </label>
+      <label class="label cursor-pointer">
+        <span class="mr-2 text-sm">Sí</span>
+        <input type="radio" [value]="true" class="radio" formControlName="isVisible"/>
+      </label>
+    </div>
+  </div>
+
+  <input
+    type="number"
+    placeholder="Rating"
+    class="input input-bordered w-24 bg-slate-900"
+    min="0"
+    max="10"
+    formControlName="rating"
+    [class.border-red-500]="productForm.get('rating')?.errors ?? false"
+    />
+    <form-error-label [control]="productForm.get('rating')!"></form-error-label>
+
+
+
+
+   <!--  <select class="select select-bordered w-full">
+      <option value="male">Masculino</option>
+      <option value="female">Femenino</option>
+      <option value="unisex">Unisex</option>
+    </select> -->
+
+  </div>
+
+  <!-- Imágenes -->
+  <div class="flex flex-col gap-2">
+    <div class="flex justify-end h-12">
+      <button class="btn btn-secondary " type="submit">
+        <!-- <span class="loading loading-spinner loading-sm"></span> -->
+
+        Guardar juego
+      </button>
+    </div>
+
+    <game-carousel [images]="game().image" />
+
+
+    <input type="file"  class="file-input file-input-bordered w-full mt-4 bg-slate-900"/>
+  </div>
+</form>

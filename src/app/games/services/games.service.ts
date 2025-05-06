@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, input } from '@angular/core';
-import { Game, GameResponse } from '@games/interfaces/game.interface';
+import { Game, GameResponse, Genre } from '@games/interfaces/game.interface';
 
 import { delay, Observable, of, tap } from 'rxjs';
 import { environments } from 'src/environments/environments';
@@ -15,6 +15,25 @@ interface Options {
   visible?:boolean;
   limit?: number;
   offset?: number;
+}
+
+const emptyGame: Game = {
+  uuid: '',
+  id: 'new',
+  title: '',
+  platforms: [],
+  developer: '',
+  publisher: '',
+  release_year: 0,
+  genre: Genre.Action,
+  description: '',
+  image: [''],
+  favorite: false,
+  rating: 0,
+  isVisible: false,
+  createdAt: new Date('2023-10-01T00:00:00.000Z'),
+  updatedAt: new Date('2023-10-01T00:00:00.000Z'),
+  __v: 0
 }
 
 @Injectable({providedIn: 'root'})
@@ -49,6 +68,12 @@ export class GamesService {
   }
 
    getGameById(id:string):Observable<Game>{
+
+    if(id === 'new'){
+      console.log('Juego Vacio', emptyGame)
+      return of(emptyGame);
+    }
+
   if (this.gameCache.has(id)) {
     return of(this.gameCache.get(id)!);
   }
@@ -59,6 +84,41 @@ export class GamesService {
   )
 
 }
+
+updateGameByUuid(uuid: string, productLike: Partial<Game>): Observable<Game>{
+
+  return this.http.patch<Game>(`${baseUrl}/games/uuid/${uuid}`, productLike)
+  .pipe(tap((game) => this.updateProductCache(game)));
+
+}
+
+createGame(gameLike: Partial<Game>): Observable<Game> {
+  console.log('Creando juego en el service', gameLike);
+  return this.http.post<Game>(`${baseUrl}/games`, gameLike)
+  .pipe(tap((game) => this.updateProductCache(game)),
+  tap((game) => console.log(game)));
+}
+
+updateProductCache(product: Game) {
+  const productId = product.id;
+
+  this.gameCache.set(productId, product);
+
+  this.gamesCache.forEach((productResponse) => {
+    productResponse.games = productResponse.games.map(
+      (currentProduct) =>
+        currentProduct.id === productId ? product : currentProduct
+    );
+  });
+
+  console.log('Caché actualizado');
+}
+
+// Método para crear un nuevo juego
+
+
+
+
 
 
 

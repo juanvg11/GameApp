@@ -1,0 +1,64 @@
+<div class="overflow-x-auto">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>
+          <label>
+            <input type="checkbox" class="checkbox bg-slate-600" />
+          </label>
+        </th>
+
+        <th class="text-gray-300">Título</th>
+        <th class="text-gray-300">Género</th>
+        <th class="text-gray-300">Plataforma</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- row 1 -->
+       @for (game of games(); track game.uuid) {
+         <tr>
+           <th>
+             <label>
+               <input type="checkbox" class="checkbox" />
+             </label>
+           </th>
+           <td>
+             <div class="flex items-center gap-3">
+               <div class="avatar">
+                 <div class="mask mask-squircle h-12 w-12">
+                   <img
+                     [src]="game.image | gameImage"
+                     [alt]="game.title" />
+                 </div>
+               </div>
+               <div>
+                 <a
+                 [routerLink]="['/admin/products', game.uuid]"
+                 class="font-bold hover:text-accent transition-colors duration-300">{{game.title}}</a>
+
+                 <div class="text-sm opacity-50">{{game.genre}}</div>
+               </div>
+             </div>
+           </td>
+           <td>
+            <!-- Fernando anade el pipe currency (creo que lo da el propio angular) -->
+             {{game.developer}}
+             <div class="text-sm opacity-50">{{game.release_year}}</div>
+           </td>
+           <!-- <td>{{game.platforms.join(", ")}}</td> -->
+           <td>{{game.platforms}}</td>
+
+           <th>
+             <a [routerLink]="['/admin/products', game.uuid]"
+             class="btn btn-ghost text-accent btn-xs">Detalles</a>
+           </th>
+         </tr>
+
+       }
+
+
+
+  </table>
+</div>

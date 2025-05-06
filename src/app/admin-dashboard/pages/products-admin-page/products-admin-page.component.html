@@ -1,1 +1,33 @@
-<p>products-admin-page works!</p>,
+<h1 class="text-2xl font-bold">Listado de juegos</h1>
+<h3 class="text-lg">Total de juegos
+  <span class="text-accent">{{gamesResource.value()?.count}}</span>
+</h3>
+
+<div class="divider"></div>
+
+<!-- Listado -->
+
+<div class="flex gap-2 items-center h-20">
+     <app-pagination [pages]="gamesResource.value()?.pages ?? 0"
+[currentPage]="paginationService.currentPage()" class="flex justify-center items-center"></app-pagination>
+
+<select class="select select-bordered w-24 text-black"
+(change)="gamesPerPage.set(+selectedPerPage.value)"
+#selectedPerPage
+>
+  <option value="10">10</option>
+  <option value="20">20</option>
+  <option value="50">50</option>
+  <option value="100">100</option>
+</select>
+
+<div class="flex flex-1 flex-row-reverse">
+  <button class="btn btn-primary" routerLink="/admin/products/new">
+    Nuevo juego
+  </button>
+</div>
+
+</div>
+
+
+<game-table [games]="gamesResource.value()?.games ?? []"></game-table>

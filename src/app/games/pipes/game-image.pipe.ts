@@ -8,7 +8,12 @@ const baseUrl = environments.baseUrl;
   name: 'gameImage',
 })
 export class GameImagePipe implements PipeTransform {
-  transform(value: string | string[]): string {
+  transform(value: null | string | string[]): string {
+
+    if (value === null) {
+      return '/images/no-image.jpg';
+    }
+
     if (typeof value === 'string') {
       return `${value}`;
     }
