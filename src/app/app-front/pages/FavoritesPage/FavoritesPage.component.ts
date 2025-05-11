@@ -5,6 +5,7 @@ import { GameCardComponent } from '@games/components/game-card/game-card.compone
 import { PaginationService } from '@shared/components/pagination/pagination.service';
 import { PaginationComponent } from '@shared/components/pagination/pagination.component';
 import { AuthService } from '@auth/services/auth.service';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-favorites-page',
@@ -16,6 +17,7 @@ export class FavoritesPageComponent {
 
 
   GamesService= inject(GamesService);
+
 
   paginationService = inject(PaginationService)
 

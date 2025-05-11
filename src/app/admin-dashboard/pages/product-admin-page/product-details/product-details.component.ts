@@ -1,11 +1,13 @@
-import { Component, inject, input, OnInit } from '@angular/core';
+import { Component, computed, inject, input, OnInit, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GameCarouselComponent } from '@games/components/game-carousel/game-carousel.component';
 import { Game } from '@games/interfaces/game.interface';
+import { GameImagePipe } from '@games/pipes/game-image.pipe';
 import { GamesService } from '@games/services/games.service';
 import { FormErrorLabelComponent } from '@shared/components/form-error-label/form-error-label.component';
 import { FormUtils } from '@utils/form-utils';
+import { firstValueFrom } from 'rxjs';
 
 
 @Component({
@@ -18,6 +20,17 @@ export class ProductDetailsComponent implements OnInit {
   game = input.required<Game>()
   gamesService = inject(GamesService)
   router = inject(Router)
+  wasSaved = signal(false)
+
+  /* No me la creo como signal ya que no pretendo que cambie */
+  imageFileList: FileList | undefined = undefined
+  tempImages = signal<string[]>([])
+
+  imagesToCarousel = computed(() => {
+    const currentGameImage = [...this.game().image, ...this.tempImages()]
+    return currentGameImage
+
+  })
 
   fb = inject(FormBuilder)
 
@@ -29,9 +42,9 @@ export class ProductDetailsComponent implements OnInit {
     description: ['', Validators.required],
     genre: ['action', Validators.required],
     release_year: ['', Validators.min(1900)],
-    platforms: [['']],
-    developer: [''],
-    publisher: [''],
+    platforms: [[''],Validators.required],
+    developer: ['',Validators.required],
+    publisher: ['',Validators.required],
     image: [[""]],
     favorite: [false],
     rating: [0],
@@ -42,7 +55,7 @@ export class ProductDetailsComponent implements OnInit {
     this.productForm.reset(this.game() as any)
   }
 
-  onSubmit() {
+  async onSubmit() {
 
     const isValid = this.productForm.valid
 
@@ -65,26 +78,51 @@ export class ProductDetailsComponent implements OnInit {
   console.log('productLike', productLike)
 
   if (this.game().id === 'new') {
-    console.log('Creando juego en el ts', this.game())
-    this.gamesService.createGame(productLike).subscribe(
+    /* el firstValueFrom hace el suscribe internamente */
+    const game = await firstValueFrom(
+      this.gamesService.createGame(productLike, this.imageFileList)
+    )
+    console.log("Juego creado!!", this.game())
+    this.router.navigate(['/admin/products', game.uuid])
+
+    /* this.gamesService.createGame(productLike).subscribe(
       game => { console.log("Juego creado!!", this.game())
         this.router.navigate(['/admin/products', game.uuid])
-      })
+      }) */
 
   } else {
-    console.log('Actualizando juego en el ts', this.game())
-    this.gamesService.updateGameByUuid(this.game().uuid, productLike).subscribe(
+   await firstValueFrom(
+      this.gamesService.updateGameByUuid(this.game().uuid, productLike, this.imageFileList)
+    )
+
+    console.log("Juego actualizado!!", this.game())
+
+   /*  this.gamesService.updateGameByUuid(this.game().uuid, productLike).subscribe(
       game => {
         console.log("Juego actualizado!!", this.game())
       }
-    )
+    ) */
 
   }
 
+  this.wasSaved.set(true)
+  setTimeout(() => {
+    this.wasSaved.set(false)
+  }, 3000)
 
   /* console.log(this.productForm.value)
   console.log('productLike', productLike) */
+ }
 
+ onFilesChanged( event: Event){
+  const fileList = (event.target as HTMLInputElement).files
+  this.imageFileList = fileList ?? undefined
+
+  const imageUrls = Array.from(fileList ?? []).map((file) =>
+     URL.createObjectURL(file)
+
+  )
+  this.tempImages.set(imageUrls)
 
  }
 }

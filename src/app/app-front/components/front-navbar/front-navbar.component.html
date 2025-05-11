@@ -67,7 +67,7 @@
   <div class="navbar bg-base-100 shadow-md sticky top-0 z-50">
   <div class="navbar-start">
     <!-- Menu Hamburguesas -->
-    <div class="dropdown">
+    <div class="dropdown ml-8">
       <div tabindex="0" role="button" class="btn btn-ghost lg">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
       </div>
@@ -92,7 +92,7 @@
       </ul>
 
     </div>
-    <a (click)="scrollToTop()" routerLink="/" class="btn btn-ghost text-xl"> <span class="text-secondary">VdeVelasco7</span></a>
+    <a (click)="scrollToTop()" routerLink="/" class="btn btn-ghost text-xl"> <span class="text-secondary">AppGame</span></a>
   </div>
   <div class="navbar-end gap-4">
 
@@ -104,9 +104,9 @@
       <button class="btn btn-ghost">
         {{ authService.user()?.name}}
       </button>
-      <button class="btn btn-sm btn-error" (click)="authService.logout()">Salir</button>
+      <button class="btn btn-sm btn-error mr-8" (click)="authService.logout()">Salir</button>
     } @else if (authService.authStatus() === 'not-authenticated') {
-      <a routerLink="/auth/login" class="btn  btn-secondary">Login</a>
+      <a routerLink="/auth/login" class="btn  btn-secondary mr-8">Login</a>
     } @else {
       <a routerLink="/auth/register" class="btn  btn-secondary">Registro</a>
     }

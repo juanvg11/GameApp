@@ -1,5 +1,5 @@
 import { A11yEvents } from './../../../../../node_modules/swiper/types/modules/a11y.d';
-import { AfterViewInit, Component, ElementRef, input, viewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, input, OnChanges, SimpleChanges, viewChild } from '@angular/core';
 import { GameImagePipe } from '@games/pipes/game-image.pipe';
 
 // import Swiper JS
@@ -24,17 +24,40 @@ import { Navigation, Pagination } from 'swiper/modules';
 
 
 })
-export class GameCarouselComponent implements AfterViewInit{
+export class GameCarouselComponent implements AfterViewInit, OnChanges{
 
 
   images = input.required<string[]>()
   swiperDiv = viewChild.required<ElementRef>('swiperDiv')
 
+  swiper: Swiper | undefined = undefined
+
+
+  ngOnChanges(changes: SimpleChanges): void {
+
+
+    if(changes['images'].firstChange) {
+     return
+    }
+
+    if(!this.swiper) return
+    this.swiper.destroy(true, true)
+
+
+    this.swiperInit()
+  }
+
+
   ngAfterViewInit(): void {
+    this.swiperInit()
+  }
+
+  swiperInit(){
+
     const element = this.swiperDiv().nativeElement
     if(!element) return
 
-    const swiper = new Swiper(element, {
+    this.swiper = new Swiper(element, {
       // Optional parameters
       direction: 'horizontal',
       loop: true,
@@ -59,6 +82,7 @@ export class GameCarouselComponent implements AfterViewInit{
         el: '.swiper-scrollbar',
       },
     });
+
   }
 }
 

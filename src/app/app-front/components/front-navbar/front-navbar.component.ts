@@ -13,6 +13,7 @@ export class FrontNavbarComponent {
 
   authService = inject(AuthService);
 
+
   isLargeScreen: boolean = window.innerWidth >= 1024; // Tamaño de pantalla para lg
 
   @HostListener('window:resize', ['$event'])

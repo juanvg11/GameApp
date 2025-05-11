@@ -10,8 +10,15 @@ const baseUrl = environments.baseUrl;
 export class GameImagePipe implements PipeTransform {
   transform(value: null | string | string[]): string {
 
+
+
     if (value === null) {
       return '/images/no-image.jpg';
+    }
+
+    if( typeof value === 'string' && value.startsWith('blob:')) {
+      return value;
+
     }
 
     if (typeof value === 'string') {

@@ -18,7 +18,7 @@ export class VisiblePageComponent  {
     console.log('ID del usuario:', userId);
   } */
 
-  //authService = inject(AuthService);
+  authService = inject(AuthService);
   GamesService= inject(GamesService);
   paginationService = inject(PaginationService);
 
@@ -33,7 +33,7 @@ export class VisiblePageComponent  {
     }); */
 
 
-    gamesResource = rxResource({
+     gamesResource = rxResource({
       request:() => ({ page: this.paginationService.currentPage() -1 }),
       loader:({request}) => {
 
@@ -45,4 +45,8 @@ export class VisiblePageComponent  {
       }
       });
 
-}
+
+
+  }
+
+

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, input } from '@angular/core';
 import { Game, GameResponse, Genre } from '@games/interfaces/game.interface';
 
-import { delay, Observable, of, tap } from 'rxjs';
+import { delay, forkJoin, map, Observable, of, switchMap, tap } from 'rxjs';
 import { environments } from 'src/environments/environments';
 
 // 'http://localhost:5001'
@@ -27,7 +27,7 @@ const emptyGame: Game = {
   release_year: 0,
   genre: Genre.Action,
   description: '',
-  image: [''],
+  image: [],
   favorite: false,
   rating: 0,
   isVisible: false,
@@ -77,6 +77,7 @@ export class GamesService {
   if (this.gameCache.has(id)) {
     return of(this.gameCache.get(id)!);
   }
+
   return this.http.get<Game>(`${baseUrl}/games/${id}`)
   .pipe(
     //delay(2000),
@@ -84,19 +85,61 @@ export class GamesService {
   )
 
 }
+/* GPT */
+getGamesByIds(ids: string[]): Observable<Game[]> {
+  return this.http.get<Game[]>(`${baseUrl}/games/by-ids`, {
+    params: { ids: ids.join(',') }
+  });
+}
 
-updateGameByUuid(uuid: string, productLike: Partial<Game>): Observable<Game>{
+updateGameByUuid(uuid: string, productLike: Partial<Game>, imageFileList?: FileList): Observable<Game>{
 
-  return this.http.patch<Game>(`${baseUrl}/games/uuid/${uuid}`, productLike)
-  .pipe(tap((game) => this.updateProductCache(game)));
+ /*  updateGameByUuid(uuid: string, productLike: Partial<Game>, imageFileList?: FileList): Observable<Game>{ */
+   const currentImages = productLike.image ?? [];
+
+  console.log('currentImages', currentImages);
+
+    return this.uploadImages(imageFileList).pipe(
+      map((imageNames) => ({
+        ...productLike,
+        image: [...currentImages, ...imageNames],
+
+      })),
+      switchMap((updatedProduct) =>
+        this.http.patch<Game>(`${baseUrl}/games/uuid/${uuid}`, updatedProduct)
+      ),
+      tap((game) => this.updateProductCache(game))
+    );
+
+
+  /* return this.http.patch<Game>(`${baseUrl}/games/uuid/${uuid}`, productLike)
+  .pipe(tap((game) => this.updateProductCache(game))); */
 
 }
 
-createGame(gameLike: Partial<Game>): Observable<Game> {
-  console.log('Creando juego en el service', gameLike);
+createGame(gameLike: Partial<Game>, imageFileList?: FileList): Observable<Game> {
+
+  const currentImages = gameLike.image ?? [];
+
+  console.log('currentImages', currentImages);
+
+    return this.uploadImages(imageFileList).pipe(
+      map((imageNames) => ({
+        ...gameLike,
+        image: [...currentImages, ...imageNames],
+
+      })),
+      switchMap((createdProduct) =>
+        this.http.post<Game>(`${baseUrl}/games`, createdProduct)
+      ),
+      tap((game) => this.updateProductCache(game))
+    );
+
+
+  /* console.log('Creando juego en el service', gameLike);
   return this.http.post<Game>(`${baseUrl}/games`, gameLike)
   .pipe(tap((game) => this.updateProductCache(game)),
-  tap((game) => console.log(game)));
+  tap((game) => console.log(game))); */
 }
 
 updateProductCache(product: Game) {
@@ -113,6 +156,30 @@ updateProductCache(product: Game) {
 
   console.log('Caché actualizado');
 }
+
+uploadImages(images?: FileList): Observable<string[]>{
+  if (!images) return of([]);
+
+  const uploadObservables = Array.from(images).map((imageFile) =>
+    this.uploadImage(imageFile)
+  );
+
+  return forkJoin(uploadObservables).pipe(
+    tap((imageNames) => console.log({ imageNames }))
+  );
+}
+
+uploadImage(imageFile: File): Observable<string>{
+  const formData = new FormData();
+  formData.append('file', imageFile);
+
+  return this.http
+  .post<{ secureUrl: string }>(`${baseUrl}/files/game`, formData)
+  .pipe(map((resp) => resp.secureUrl));
+   /*  .post<{ fileName: string }>(`${baseUrl}/files/game`, formData)
+    .pipe(map((resp) => resp.fileName)); */
+}
+
 
 // Método para crear un nuevo juego
 
