@@ -6,6 +6,6 @@ export interface User {
   name: string;
   isActive: boolean;
   roles: string[];
-  library: string[];
+  library: Game[];
   favorites: Game[];
 }

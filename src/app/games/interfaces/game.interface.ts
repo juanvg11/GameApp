@@ -15,9 +15,9 @@ export interface Game {
   genre:        Genre;
   description:  string;
   image:        string[];
-  favorite:     boolean;
+  //favorite:     boolean;
   rating:       number;
-  isVisible:    boolean;
+  //isVisible:    boolean;
   createdAt:    Date;
   updatedAt:    Date;
   __v:          number;

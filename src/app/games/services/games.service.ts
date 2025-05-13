@@ -28,9 +28,9 @@ const emptyGame: Game = {
   genre: Genre.Action,
   description: '',
   image: [],
-  favorite: false,
+  //favorite: false,
   rating: 0,
-  isVisible: false,
+  //isVisible: false,
   createdAt: new Date('2023-10-01T00:00:00.000Z'),
   updatedAt: new Date('2023-10-01T00:00:00.000Z'),
   __v: 0

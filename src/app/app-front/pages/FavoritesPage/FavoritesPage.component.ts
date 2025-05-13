@@ -16,20 +16,14 @@ import { Game } from '@games/interfaces/game.interface';
 export class FavoritesPageComponent {
 
 
-
-
-
-  GamesService= inject(GamesService);
-  AuthService = inject(AuthService);
-
-
+  authService = inject(AuthService);
   paginationService = inject(PaginationService)
 
-    private gamesPerPage = 8;
+  private gamesPerPage = 8;
 
   // Computed signal para acceder directamente a los favoritos del usuario
   allFavoriteGames = computed<Game[]>(() => {
-    const user = this.AuthService.user();
+    const user = this.authService.user();
     //console.log('UserSignal:', user);
     return user?.favorites ?? [];
   });

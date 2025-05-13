@@ -2,7 +2,7 @@
 
 <!-- <app-pagination></app-pagination> -->
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3">
+<!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3">
 
 @for (game of this.gamesResource.value()?.games; track game.uuid) {
   <game-card [game]="game"></game-card>
@@ -13,8 +13,29 @@
 
   </span>
 }
-</div>
+</div> -->
 
-<app-pagination [pages]="gamesResource.value()?.pages ?? 0"
+<!-- <app-pagination [pages]="gamesResource.value()?.pages ?? 0"
 [currentPage]="paginationService.currentPage()" class="flex justify-center items-center mt-4 mb-10"></app-pagination>
+ -->
 
+
+@if (paginatedLibrary().length > 0 ) {
+   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <game-card
+      *ngFor="let game of paginatedLibrary()"
+      [game]="game">
+    </game-card>
+  </div>
+
+  <app-pagination
+    [pages]="totalPages()"
+    [currentPage]="paginationService.currentPage()"
+    class="flex justify-center items-center mt-4 mb-10">
+  </app-pagination>
+} @else () {
+  <div class="text-center mt-4 flex flex-col items-center justify-center gap-2">
+
+    <p class="text-gray-700">No tienes juegos aún.</p>
+  </div>
+}

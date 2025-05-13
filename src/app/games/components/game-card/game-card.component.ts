@@ -38,6 +38,32 @@ readonly isFavorite = computed(() =>
   this.user()?.favorites.some(game => game._id === this.game()._id) ?? false
 );
 
+/* readonly isInLibrary = computed(() =>
+  this.user()?.library.some(game => game._id === this.game()._id) ?? false
+); */
+
+
+toggleFavorite(gameId: string) {
+  const userId = this.authService.getUserId();
+
+  this.http.patch<User>(`${baseUrl}/auth/${userId}/favorites/${gameId}`, {})
+  .subscribe(updatedUser => {
+    // Actualiza la señal del usuario con el nuevo valor
+    this.authService.updateUser(updatedUser);
+  });
+}
+
+/* toggleLibrary(gameId: string) {
+  const userId = this.authService.getUserId();
+
+  this.http.patch<User>(`${baseUrl}/auth/${userId}/library/${gameId}`, {})
+  .subscribe(updatedUser => {
+    // Actualiza la señal del usuario con el nuevo valor
+    this.authService.updateUser(updatedUser);
+  });
+} */
+
+
 /* Primer toggleFavorite, el cual no me sirve ya que anteriormente solo actualizaba el atributo favorite de Game.
 Cosa que es inviable al teener autentificacion ya que cada usuario tendra sus propios favoritos */
 /* toggleFavorite(uuid: string) {
@@ -72,27 +98,15 @@ Cosa que es inviable al teener autentificacion ya que cada usuario tendra sus pr
     });
 } */
 
-toggleFavorite(gameId: string) {
-  const userId = this.authService.getUserId();
 
-  this.http.patch<User>(`${baseUrl}/auth/${userId}/favorites/${gameId}`, {})
-    .subscribe(updatedUser => {
-      // Actualiza la señal del usuario con el nuevo valor
-      this.authService.updateUser(updatedUser);
-    });
-}
-
-
-
-
-toggleVisible(uuid: string) {
+/* toggleVisible(uuid: string) {
   this.http.patch(`${baseUrl}/games/${uuid}/visible`, { isVisible: !this.game().isVisible })
     .subscribe(response => {
       this.game().isVisible = !this.game().isVisible;  // Cambiar el estado local
       console.log('Visible actualizado:', this.game());
       console.log('Respuesta Visible backend:',response)
     });
-}
+} */
 
 /* ratingGame(uuid: string){
   this.http.patch(`${baseUrl}/games/${uuid}/rating`, { rating: 0 })
