@@ -77,7 +77,7 @@ export class ProductDetailsComponent implements OnInit {
 
   console.log('productLike', productLike)
 
-  if (this.game().id === 'new') {
+  if (this.game()._id === 'new') {
     /* el firstValueFrom hace el suscribe internamente */
     const game = await firstValueFrom(
       this.gamesService.createGame(productLike, this.imageFileList)

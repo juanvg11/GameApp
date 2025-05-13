@@ -1,3 +1,5 @@
+import { Game } from "@games/interfaces/game.interface";
+
 export interface User {
   _id: string;
   email: string;
@@ -5,5 +7,5 @@ export interface User {
   isActive: boolean;
   roles: string[];
   library: string[];
-  favorites: string[];
+  favorites: Game[];
 }

@@ -6,7 +6,7 @@ export interface GameResponse {
 
 export interface Game {
   uuid: string;
-  id:          string;
+  _id:          string;
   title:        string;
   platforms:    Platform[];
   developer:    string;

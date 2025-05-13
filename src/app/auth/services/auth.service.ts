@@ -124,4 +124,9 @@ export class AuthService {
     return of(false);
   }
 
+  updateUser(user: User) {
+  this._user.set(user);
+}
+
+
 }

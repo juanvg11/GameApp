@@ -19,7 +19,7 @@ interface Options {
 
 const emptyGame: Game = {
   uuid: '',
-  id: 'new',
+  _id: 'new',
   title: '',
   platforms: [],
   developer: '',
@@ -143,14 +143,14 @@ createGame(gameLike: Partial<Game>, imageFileList?: FileList): Observable<Game> 
 }
 
 updateProductCache(product: Game) {
-  const productId = product.id;
+  const productId = product._id;
 
   this.gameCache.set(productId, product);
 
   this.gamesCache.forEach((productResponse) => {
     productResponse.games = productResponse.games.map(
       (currentProduct) =>
-        currentProduct.id === productId ? product : currentProduct
+        currentProduct._id === productId ? product : currentProduct
     );
   });
 

@@ -7,7 +7,7 @@
 Si pongo esto muestro todos los juegos no los favoritos -->
 
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3">
+<!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3">
 @for (game of this.gamesResourceFavorite.value()?.games; track game.uuid) {
   <game-card [game]="game"></game-card>
 } @empty {
@@ -15,14 +15,58 @@ Si pongo esto muestro todos los juegos no los favoritos -->
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect width="48" height="48" fill="white" fill-opacity="0.01"></rect> <path d="M15 8C8.92487 8 4 12.9249 4 19C4 30 17 40 24 42.3262C31 40 44 30 44 19C44 12.9249 39.0751 8 33 8C29.2797 8 25.9907 9.8469 24 12.6738C22.0093 9.8469 18.7203 8 15 8Z" fill="#ff4d4d" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M28 20L20 28L28 20Z" fill="#ff4d4d"></path> <path d="M28 20L20 28" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M20 20.0001L28 28L20 20.0001Z" fill="#ff4d4d"></path> <path d="M20 20.0001L28 28" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
     Sin favoritos
   </span>
+  } -->
 
 
+<!-- <div *ngIf="paginatedFavorites().length > 0; else noFavorites">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <game-card
+      *ngFor="let game of paginatedFavorites()"
+      [game]="game">
+    </game-card>
+  </div>
 
-  }
-
-
+  <app-pagination
+    [pages]="totalPages()"
+    [currentPage]="paginationService.currentPage()"
+    class="flex justify-center items-center mt-4 mb-10">
+  </app-pagination>
 </div>
 
-<app-pagination [pages]="gamesResourceFavorite.value()?.pages ?? 0"
-[currentPage]="paginationService.currentPage()" class="flex justify-center items-center mt-4 mb-10"></app-pagination>
+<ng-template #noFavorites>
+  <div class="text-center mt-4 flex flex-col items-center justify-center gap-2">
+
+    <p class="text-gray-700">No tienes juegos favoritos aún.</p>
+  </div>
+</ng-template> -->
+
+@if (paginatedFavorites().length > 0 ) {
+   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <game-card
+      *ngFor="let game of paginatedFavorites()"
+      [game]="game">
+    </game-card>
+  </div>
+
+  <app-pagination
+    [pages]="totalPages()"
+    [currentPage]="paginationService.currentPage()"
+    class="flex justify-center items-center mt-4 mb-10">
+  </app-pagination>
+} @else () {
+  <div class="text-center mt-4 flex flex-col items-center justify-center gap-2">
+
+    <p class="text-gray-700">No tienes juegos favoritos aún.</p>
+  </div>
+}
+
+
+
+
+
+
+<!-- <button class="btn btn-primary" (click)="mostrarFavoritos()">Favoritos del Usuario Loggeado</button>
+
+<!-- <app-pagination [pages]="gamesResourceFavorite.value()?.pages ?? 0"
+[currentPage]="paginationService.currentPage()" class="flex justify-center items-center mt-4 mb-10"></app-pagination> -->
 

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, HostListener, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '@auth/services/auth.service';
@@ -6,7 +7,7 @@ import { CategorySelectComponent } from '@shared/components/category-select/cate
 
 @Component({
   selector: 'front-navbar',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './front-navbar.component.html',
 })
 export class FrontNavbarComponent {
