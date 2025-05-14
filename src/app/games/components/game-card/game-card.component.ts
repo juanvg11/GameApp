@@ -2,7 +2,7 @@ import { CommonModule, SlicePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, computed, inject, Input, input } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Game } from '@games/interfaces/game.interface';
 import { GameImagePipe } from '@games/pipes/game-image.pipe';
 import { environments } from 'src/environments/environments';
@@ -25,8 +25,9 @@ export class GameCardComponent {
 
 
 
+constructor(private http: HttpClient, public router: Router) {
 
-constructor(private http: HttpClient) {}
+}
 
 game = input.required<Game>()
 ratingValue: number = 0;
@@ -34,9 +35,12 @@ authService = inject(AuthService);
 
 readonly user = this.authService.user; // ya es una computed signal
 
+
 readonly isFavorite = computed(() =>
   this.user()?.favorites.some(game => game._id === this.game()._id) ?? false
 );
+
+
 
 /* readonly isInLibrary = computed(() =>
   this.user()?.library.some(game => game._id === this.game()._id) ?? false
@@ -52,6 +56,8 @@ toggleFavorite(gameId: string) {
     this.authService.updateUser(updatedUser);
   });
 }
+
+
 
 /* toggleLibrary(gameId: string) {
   const userId = this.authService.getUserId();
@@ -130,8 +136,5 @@ Cosa que es inviable al teener autentificacion ya que cada usuario tendra sus pr
         console.log('Respuesta backend:', response);
       });
   }
-
-
-
 
 }

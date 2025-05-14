@@ -1,26 +1,131 @@
 
-<div class="navbar-center z-10">
-  <ul class="menu menu-horizontal px-1">
-    <li>
-      <details>
-        <summary>Categorías</summary>
-        <ul class="p-2 flex justify-center shadow-xl">
-          <li><a routerLink="/">Todas</a></li>
-          <li> <a routerLink="/genre/action">Accion</a></li>
-          <li><a routerLink="/genre/adventure">Aventura</a></li>
-          <li><a routerLink="/genre/indie">Indie</a></li>
-          <li><a routerLink="/genre/shooter">Shooter</a></li>
-        </ul>
-      </details>
-    </li>
-    <li>
-      <details>
-      <summary>Rating</summary>
-      <ul class="p-2 flex justify-center shadow-xl">
-        <li><a>Mayor</a></li>
-        <li><a>Menor</a></li>
-      </ul>
-    </details>
-  </li>
-  </ul>
-</div>
+
+<!-- <form class="filter" >
+  <input routerLink="/" class="btn" type="radio" name="frameworks" value="×" aria-label="x"  [disabled]="isCurrentRoute('/')"/>
+  <input routerLink="/genre/action" class="btn" type="radio" name="frameworks" value="action" aria-label="Acción" [disabled]="isCurrentRoute('/genre/action')" />
+  <input routerLink="/genre/adventure" class="btn" type="radio" name="frameworks" value="adventure" aria-label="Aventura" [disabled]="isCurrentRoute('/genre/adventure')" />
+  <input routerLink="/genre/indie" class="btn" type="radio" name="frameworks" value="indie" aria-label="Indie" [disabled]="isCurrentRoute('/genre/indie')" />
+  <input routerLink="/genre/shooter" class="btn" type="radio" name="frameworks" value="shooter" aria-label="Shooter" [disabled]="isCurrentRoute('/genre/shooter')" />
+  <input routerLink="/genre/rpg" class="btn" type="radio" name="frameworks" value="rpg" aria-label="RPG" [disabled]="isCurrentRoute('/genre/rpg')" />
+  <input routerLink="/genre/sports" class="btn" type="radio" name="frameworks" value="sports" aria-label="Deportes" [disabled]="isCurrentRoute('/genre/sports')" />
+  <input routerLink="/genre/horror" class="btn" type="radio" name="frameworks" value="horror" aria-label="Terror" [disabled]="isCurrentRoute('/genre/horror')" />
+  <input routerLink="/genre/survival" class="btn" type="radio" name="frameworks" value="survival" aria-label="Supervivencia" [disabled]="isCurrentRoute('/genre/survival')" />
+</form> -->
+
+<form class="filter gap-1">
+  <label>
+    <input type="radio" name="genre" [checked]="isActive('/')()" routerLink="/" hidden />
+    <span class="btn"  [ngClass]="{
+        'bg-blue-700 text-white font-semibold': isActive('/')(),
+        'bg-gray-200 text-gray-800': !isActive('/')()
+      }" >Todos</span>
+  </label>
+
+  <label>
+    <input type="radio" name="genre" [checked]="isActive('/genre/action')()" routerLink="/genre/action" hidden />
+    <span class="btn" [ngClass]="{
+        'bg-blue-700 text-white font-semibold': isActive('/genre/action')(),
+        'bg-gray-200 text-gray-800': !isActive('/genre/action')()
+      }">Acción</span>
+  </label>
+
+  <label>
+    <input type="radio" name="genre" [checked]="isActive('/genre/adventure')()" routerLink="/genre/adventure" hidden />
+    <span class="btn" [ngClass]="{
+        'bg-blue-700 text-white font-semibold': isActive('/genre/adventure')(),
+        'bg-gray-200 text-gray-800': !isActive('/genre/adventure')()
+      }">Aventura</span>
+  </label>
+
+  <label>
+    <input type="radio" name="genre" [checked]="isActive('/genre/indie')()" routerLink="/genre/indie" hidden />
+    <span
+      class="btn transition-all duration-200"
+      [ngClass]="{
+        'bg-blue-700 text-white font-semibold': isActive('/genre/indie')(),
+        'bg-gray-200 text-gray-800': !isActive('/genre/indie')()
+      }"
+      role="radio"
+      [attr.aria-checked]="isActive('/genre/indie')()"
+    >
+      Indie
+    </span>
+  </label>
+
+  <label>
+    <input type="radio" name="genre" [checked]="isActive('/genre/shooter')()" routerLink="/genre/shooter" hidden />
+    <span
+      class="btn transition-all duration-200"
+      [ngClass]="{
+        'bg-blue-700 text-white font-semibold': isActive('/genre/shooter')(),
+        'bg-gray-200 text-gray-800': !isActive('/genre/shooter')()
+      }"
+      role="radio"
+      [attr.aria-checked]="isActive('/genre/shooter')()"
+    >
+      Shooter
+    </span>
+  </label>
+
+  <label>
+    <input type="radio" name="genre" [checked]="isActive('/genre/rpg')()" routerLink="/genre/rpg" hidden />
+    <span
+      class="btn transition-all duration-200"
+      [ngClass]="{
+        'bg-blue-700 text-white font-semibold': isActive('/genre/rpg')(),
+        'bg-gray-200 text-gray-800': !isActive('/genre/rpg')()
+      }"
+      role="radio"
+      [attr.aria-checked]="isActive('/genre/rpg')()"
+    >
+      RPG
+    </span>
+  </label>
+
+  <label>
+    <input type="radio" name="genre" [checked]="isActive('/genre/sports')()" routerLink="/genre/sports" hidden />
+    <span
+      class="btn transition-all duration-200"
+      [ngClass]="{
+        'bg-blue-700 text-white font-semibold': isActive('/genre/sports')(),
+        'bg-gray-200 text-gray-800': !isActive('/genre/sports')()
+      }"
+      role="radio"
+      [attr.aria-checked]="isActive('/genre/sports')()"
+    >
+      Deportes
+    </span>
+  </label>
+
+  <label>
+    <input type="radio" name="genre" [checked]="isActive('/genre/horror')()" routerLink="/genre/horror" hidden />
+    <span
+      class="btn transition-all duration-200"
+      [ngClass]="{
+        'bg-blue-700 text-white font-semibold': isActive('/genre/horror')(),
+        'bg-gray-200 text-gray-800': !isActive('/genre/horror')()
+      }"
+      role="radio"
+      [attr.aria-checked]="isActive('/genre/horror')()"
+    >
+      Terror
+    </span>
+  </label>
+
+  <label>
+    <input type="radio" name="genre" [checked]="isActive('/genre/survival')()" routerLink="/genre/survival" hidden />
+    <span
+      class="btn transition-all duration-200"
+      [ngClass]="{
+        'bg-blue-700 text-white font-semibold': isActive('/genre/survival')(),
+        'bg-gray-200 text-gray-800': !isActive('/genre/survival')()
+      }"
+      role="radio"
+      [attr.aria-checked]="isActive('/genre/survival')()"
+    >
+      Supervivencia
+    </span>
+  </label>
+
+  <!-- Repite para cada género -->
+</form>

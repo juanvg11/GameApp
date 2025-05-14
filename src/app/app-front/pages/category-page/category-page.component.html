@@ -1,11 +1,23 @@
 <h1 class="text-3xl font-bold m-5">Juegos <span class="text-xl text-secondary m-2">{{genre()}}</span></h1>
 
+<app-search (value)="query.set($event)"></app-search>
+
+<category-select class="navbar-center menu menu-horizontal px-1"></category-select>
+
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3">
-@for (game of this.gamesResource.value()?.games; track game.uuid) {
-  <game-card [game]="game"></game-card>
-} @empty {
-  <p class="m-5">No hay juegos de la categoria <span class="font-bold text-red-500">{{genre()}}</span></p>
-}
+
+@for (game of searchResource.value()?.games; track $index) {
+
+    <game-card [game]="game"></game-card>
+  } @empty {
+    @for (game of this.gamesResource.value()?.games; track game.uuid) {
+    <game-card [game]="game"></game-card>
+  } @empty {
+    <p class="m-5">No hay juegos de la categoria <span class="font-bold text-red-500">{{genre()}}</span></p>
+  }
+
+  }
+
 </div>
 
 <app-pagination [pages]="gamesResource.value()?.pages ?? 0"

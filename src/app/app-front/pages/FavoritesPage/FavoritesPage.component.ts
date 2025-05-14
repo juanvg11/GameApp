@@ -24,9 +24,11 @@ export class FavoritesPageComponent {
   // Computed signal para acceder directamente a los favoritos del usuario
   allFavoriteGames = computed<Game[]>(() => {
     const user = this.authService.user();
-    //console.log('UserSignal:', user);
+    console.log('UserSignal:', user);
     return user?.favorites ?? [];
   });
+
+
 
   // Total de páginas
   totalPages = computed(() => {

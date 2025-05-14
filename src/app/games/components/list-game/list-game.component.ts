@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { GamesService } from '../../../games/services/games.service';
 import {  of } from 'rxjs';
@@ -19,6 +19,9 @@ export class ListGameComponent {
   gamesService = inject(GamesService);
   paginationService = inject(PaginationService)
   query = signal('')
+
+  genreFilter = signal('');
+  pageSignal = signal(0);
 
 
 /*   activatedRoute = inject(ActivatedRoute)
@@ -50,10 +53,15 @@ export class ListGameComponent {
 
      // console.log(request)
       return this.gamesService.getGames({
-        offset: request.pages * 8,
-        limit: 8
+        offset: request.pages * 9,
+        limit: 9
       })
     }
     });
+
+
+
+
+
 
  }

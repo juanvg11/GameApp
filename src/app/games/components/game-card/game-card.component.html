@@ -5,15 +5,18 @@
       [alt]="game().title" />
 
        <!-- Botón de favorito superpuesto -->
-   <button
-  class="absolute top-2 right-2 bg-white/60 hover:bg-white p-2 rounded-full text-xl transition-transform duration-300 ease-in-out transform"
-  [class.scale-110]="isFavorite()"
-  [class.scale-100]="!isFavorite()"
-  (click)="toggleFavorite(game()._id)">
-  <mat-icon [ngClass]="{ 'text-red-500': isFavorite(), 'text-gray-400': !isFavorite() }">
-    {{ isFavorite() ? 'favorite' : 'favorite_border' }}
-  </mat-icon>
-</button>
+
+       @if( authService.authStatus() === 'authenticated'){
+         <button
+        class="absolute top-2 right-2 bg-white/60 hover:bg-white p-2 rounded-full text-xl transition-transform duration-300 ease-in-out transform"
+        [class.scale-110]="isFavorite()"
+        [class.scale-100]="!isFavorite()"
+        (click)="toggleFavorite(game()._id)">
+        <mat-icon [ngClass]="{ 'text-red-500': isFavorite(), 'text-gray-400': !isFavorite() }">
+          {{ isFavorite() ? 'favorite' : 'favorite_border' }}
+        </mat-icon>
+      </button>
+    }
 
   </figure>
   <div class="card-body">
@@ -23,20 +26,23 @@
 
 
 
+@if (router.url === '/favorites') {
+  @if( authService.authStatus() === 'authenticated'){
+  <div class="flex flex-auto">
+    <span
+      *ngFor="let value of [ 2, 4, 6, 8, 10]"
+      (click)="ratingGame(game().uuid, value)"
+      class="cursor-pointer text-3xl transition-transform transform hover:scale-125"
+      [ngClass]="{'text-yellow-500': game().rating >= value, 'text-gray-400': game().rating < value}">
+      ★
+    </span>
 
+  </div>
 
-<div class="flex flex-auto">
-  <span
-    *ngFor="let value of [ 2, 4, 6, 8, 10]"
-    (click)="ratingGame(game().uuid, value)"
-    class="cursor-pointer text-3xl transition-transform transform hover:scale-125"
-    [ngClass]="{'text-yellow-500': game().rating >= value, 'text-gray-400': game().rating < value}">
-    ★
-  </span>
+      }
 
+}
 
-
-</div>
 
 <!--   <button
   class="absolute top-2 left-2 bg-white/60 hover:bg-white p-2 rounded-full text-xl transition-transform duration-300 ease-in-out transform"

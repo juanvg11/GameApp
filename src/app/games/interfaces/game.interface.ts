@@ -24,16 +24,16 @@ export interface Game {
 }
 
 export enum Genre {
-  Indie = "indie", //
   Action = "action",//
   Adventure = "adventure",//
+  Indie = "indie", //
   Shooter = "shooter",//
-  RPG = "rpg",//
   Strategy = "strategy",//
-  Fighting = "fighting",//
+  RPG = "rpg",//
   Simulation = "simulation",//
-  Racing = "racing",//
   Sports = "sports",//
+  Fighting = "fighting",//
+  Racing = "racing",//
   Horror = "horror",//
   Platformer = "platformer",//
   BattleRoyale = "battle-royale",//
