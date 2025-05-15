@@ -8,11 +8,11 @@
 
        @if( authService.authStatus() === 'authenticated'){
          <button
-        class="absolute top-2 right-2 bg-white/60 hover:bg-white p-2 rounded-full text-xl transition-transform duration-300 ease-in-out transform"
+        class="absolute top-2 right-2 p-2 rounded-full text-xl hover:transition-transform duration-300 ease-in-out transform"
         [class.scale-110]="isFavorite()"
         [class.scale-100]="!isFavorite()"
         (click)="toggleFavorite(game()._id)">
-        <mat-icon [ngClass]="{ 'text-red-500': isFavorite(), 'text-gray-400': !isFavorite() }">
+        <mat-icon [ngClass]="{ 'text-red-500': isFavorite(), 'text-gray-400 hover:text-red-500': !isFavorite() }">
           {{ isFavorite() ? 'favorite' : 'favorite_border' }}
         </mat-icon>
       </button>
@@ -21,7 +21,9 @@
   </figure>
   <div class="card-body">
     <h2 class="card-title text-slate-400 text-xl">{{game().title}}</h2>
-    <p>{{game().description | slice: 0 : 70}} ...</p>
+    @if (router.url !== '/favorites') {
+      <p>{{game().description | slice: 0 : 70}} ...</p>
+    }
     <div class="card-actions justify-end">
 
 

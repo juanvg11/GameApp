@@ -1,4 +1,4 @@
-<section class="flex flex-row gap-2 mt-2 ml-2">
+<section class="flex flex-row gap-2 ">
   <input type="text" class="w-screen input"
   placeholder="Buscador..."
   autofocus
@@ -6,7 +6,7 @@
 
   <!-- Pantallas grandes Buscar y Lupa. Pantallas pequenas Lupa -->
   @if (isLargeScreen) {
-    <button class="btn btn-primary mr-2" (click)="value.emit(txtSearch.value)">
+    <button class="btn btn-primary " (click)="value.emit(txtSearch.value)">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="13.318 13.318 34.648 34.648">
         <g>
           <path fill="#FFFFFF" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M37.748,37.748L37.748,37.748c-1.163,1.163-1.163,3.048,0,4.211l4.635,4.635c1.163,1.163,3.048,1.163,4.211,0l0,0c1.163-1.163,1.163-3.048,0-4.211l-4.635-4.635C40.796,36.585,38.911,36.585,37.748,37.748z"/>

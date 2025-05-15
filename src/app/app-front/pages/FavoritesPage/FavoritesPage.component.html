@@ -1,4 +1,5 @@
-<h1 class="text-3xl font-bold m-5">Mis favoritos</h1>
+<div class="pb-24 px-2">
+<h1 class="text-xl font-bold mt-5 mb-5 text-blue-700">Mis favoritos</h1>
 
 <!-- <app-pagination></app-pagination> -->
 
@@ -38,7 +39,9 @@ Si pongo esto muestro todos los juegos no los favoritos -->
 </ng-template> -->
 
 @if (paginatedFavorites().length > 0 ) {
-   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+
+  <!-- grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 -->
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3">
     <game-card
       *ngFor="let game of paginatedFavorites()"
       [game]="game">
@@ -56,6 +59,8 @@ Si pongo esto muestro todos los juegos no los favoritos -->
     <p class="text-gray-700">No tienes juegos favoritos aún.</p>
   </div>
 }
+
+</div>
 
 
 <!-- <button class="btn btn-primary" (click)="mostrarFavoritos()">Favoritos del Usuario Loggeado</button>

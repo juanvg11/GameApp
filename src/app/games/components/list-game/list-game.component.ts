@@ -7,6 +7,7 @@ import { SearchComponent } from '@shared/components/search/search.component';
 import { CategorySelectComponent } from '@shared/components/category-select/category-select.component';
 import { PaginationComponent } from '@shared/components/pagination/pagination.component';
 import { PaginationService } from '@shared/components/pagination/pagination.service';
+import { AuthService } from '@auth/services/auth.service';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class ListGameComponent {
 
   gamesService = inject(GamesService);
   paginationService = inject(PaginationService)
+  authService = inject(AuthService);
   query = signal('')
 
   genreFilter = signal('');

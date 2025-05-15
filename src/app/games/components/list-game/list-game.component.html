@@ -1,5 +1,7 @@
 <!-- Lo necesita porque si no no tiene el valor para buscar -->
-<h1 class="text-3xl font-bold m-5">Listado de juegos</h1>
+ <div class="pb-24 px-2">
+<h1 class="text-xl font-bold mt-5 mb-5 text-blue-700">Todos los juegos</h1>
+
 
 <app-search (value)="query.set($event)"></app-search>
 
@@ -24,5 +26,7 @@
 
 <app-pagination [pages]="gamesResourceList.value()?.pages ?? 0"
 [currentPage]="paginationService.currentPage()" class="flex justify-center items-center mt-4 mb-10"></app-pagination>
+
+</div>
 
 

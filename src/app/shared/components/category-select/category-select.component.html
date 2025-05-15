@@ -11,121 +11,141 @@
   <input routerLink="/genre/horror" class="btn" type="radio" name="frameworks" value="horror" aria-label="Terror" [disabled]="isCurrentRoute('/genre/horror')" />
   <input routerLink="/genre/survival" class="btn" type="radio" name="frameworks" value="survival" aria-label="Supervivencia" [disabled]="isCurrentRoute('/genre/survival')" />
 </form> -->
+@if (isLargeScreen) {
+  <form class="filter gap-1">
+    <label>
+      <input type="radio" name="genre" [checked]="isActive('/')()" routerLink="/" hidden />
+      <span class="btn"  [ngClass]="{
+          'bg-blue-700 text-white font-semibold': isActive('/')(),
+          'bg-gray-200 text-gray-800': !isActive('/')()
+        }" >Todos</span>
+    </label>
 
-<form class="filter gap-1">
-  <label>
-    <input type="radio" name="genre" [checked]="isActive('/')()" routerLink="/" hidden />
-    <span class="btn"  [ngClass]="{
-        'bg-blue-700 text-white font-semibold': isActive('/')(),
-        'bg-gray-200 text-gray-800': !isActive('/')()
-      }" >Todos</span>
-  </label>
+    <label>
+      <input type="radio" name="genre" [checked]="isActive('/genre/action')()" routerLink="/genre/action" hidden />
+      <span class="btn" [ngClass]="{
+          'bg-blue-700 text-white font-semibold': isActive('/genre/action')(),
+          'bg-gray-200 text-gray-800': !isActive('/genre/action')()
+        }">Acción</span>
+    </label>
 
-  <label>
-    <input type="radio" name="genre" [checked]="isActive('/genre/action')()" routerLink="/genre/action" hidden />
-    <span class="btn" [ngClass]="{
-        'bg-blue-700 text-white font-semibold': isActive('/genre/action')(),
-        'bg-gray-200 text-gray-800': !isActive('/genre/action')()
-      }">Acción</span>
-  </label>
+    <label>
+      <input type="radio" name="genre" [checked]="isActive('/genre/adventure')()" routerLink="/genre/adventure" hidden />
+      <span class="btn" [ngClass]="{
+          'bg-blue-700 text-white font-semibold': isActive('/genre/adventure')(),
+          'bg-gray-200 text-gray-800': !isActive('/genre/adventure')()
+        }">Aventura</span>
+    </label>
 
-  <label>
-    <input type="radio" name="genre" [checked]="isActive('/genre/adventure')()" routerLink="/genre/adventure" hidden />
-    <span class="btn" [ngClass]="{
-        'bg-blue-700 text-white font-semibold': isActive('/genre/adventure')(),
-        'bg-gray-200 text-gray-800': !isActive('/genre/adventure')()
-      }">Aventura</span>
-  </label>
+    <label>
+      <input type="radio" name="genre" [checked]="isActive('/genre/indie')()" routerLink="/genre/indie" hidden />
+      <span
+        class="btn transition-all duration-200"
+        [ngClass]="{
+          'bg-blue-700 text-white font-semibold': isActive('/genre/indie')(),
+          'bg-gray-200 text-gray-800': !isActive('/genre/indie')()
+        }"
+        role="radio"
+        [attr.aria-checked]="isActive('/genre/indie')()"
+      >
+        Indie
+      </span>
+    </label>
 
-  <label>
-    <input type="radio" name="genre" [checked]="isActive('/genre/indie')()" routerLink="/genre/indie" hidden />
-    <span
-      class="btn transition-all duration-200"
-      [ngClass]="{
-        'bg-blue-700 text-white font-semibold': isActive('/genre/indie')(),
-        'bg-gray-200 text-gray-800': !isActive('/genre/indie')()
-      }"
-      role="radio"
-      [attr.aria-checked]="isActive('/genre/indie')()"
-    >
-      Indie
-    </span>
-  </label>
+    <label>
+      <input type="radio" name="genre" [checked]="isActive('/genre/shooter')()" routerLink="/genre/shooter" hidden />
+      <span
+        class="btn transition-all duration-200"
+        [ngClass]="{
+          'bg-blue-700 text-white font-semibold': isActive('/genre/shooter')(),
+          'bg-gray-200 text-gray-800': !isActive('/genre/shooter')()
+        }"
+        role="radio"
+        [attr.aria-checked]="isActive('/genre/shooter')()"
+      >
+        Shooter
+      </span>
+    </label>
 
-  <label>
-    <input type="radio" name="genre" [checked]="isActive('/genre/shooter')()" routerLink="/genre/shooter" hidden />
-    <span
-      class="btn transition-all duration-200"
-      [ngClass]="{
-        'bg-blue-700 text-white font-semibold': isActive('/genre/shooter')(),
-        'bg-gray-200 text-gray-800': !isActive('/genre/shooter')()
-      }"
-      role="radio"
-      [attr.aria-checked]="isActive('/genre/shooter')()"
-    >
-      Shooter
-    </span>
-  </label>
+    <label>
+      <input type="radio" name="genre" [checked]="isActive('/genre/rpg')()" routerLink="/genre/rpg" hidden />
+      <span
+        class="btn transition-all duration-200"
+        [ngClass]="{
+          'bg-blue-700 text-white font-semibold': isActive('/genre/rpg')(),
+          'bg-gray-200 text-gray-800': !isActive('/genre/rpg')()
+        }"
+        role="radio"
+        [attr.aria-checked]="isActive('/genre/rpg')()"
+      >
+        RPG
+      </span>
+    </label>
 
-  <label>
-    <input type="radio" name="genre" [checked]="isActive('/genre/rpg')()" routerLink="/genre/rpg" hidden />
-    <span
-      class="btn transition-all duration-200"
-      [ngClass]="{
-        'bg-blue-700 text-white font-semibold': isActive('/genre/rpg')(),
-        'bg-gray-200 text-gray-800': !isActive('/genre/rpg')()
-      }"
-      role="radio"
-      [attr.aria-checked]="isActive('/genre/rpg')()"
-    >
-      RPG
-    </span>
-  </label>
+    <label>
+      <input type="radio" name="genre" [checked]="isActive('/genre/sports')()" routerLink="/genre/sports" hidden />
+      <span
+        class="btn transition-all duration-200"
+        [ngClass]="{
+          'bg-blue-700 text-white font-semibold': isActive('/genre/sports')(),
+          'bg-gray-200 text-gray-800': !isActive('/genre/sports')()
+        }"
+        role="radio"
+        [attr.aria-checked]="isActive('/genre/sports')()"
+      >
+        Deportes
+      </span>
+    </label>
 
-  <label>
-    <input type="radio" name="genre" [checked]="isActive('/genre/sports')()" routerLink="/genre/sports" hidden />
-    <span
-      class="btn transition-all duration-200"
-      [ngClass]="{
-        'bg-blue-700 text-white font-semibold': isActive('/genre/sports')(),
-        'bg-gray-200 text-gray-800': !isActive('/genre/sports')()
-      }"
-      role="radio"
-      [attr.aria-checked]="isActive('/genre/sports')()"
-    >
-      Deportes
-    </span>
-  </label>
+    <label>
+      <input type="radio" name="genre" [checked]="isActive('/genre/horror')()" routerLink="/genre/horror" hidden />
+      <span
+        class="btn transition-all duration-200"
+        [ngClass]="{
+          'bg-blue-700 text-white font-semibold': isActive('/genre/horror')(),
+          'bg-gray-200 text-gray-800': !isActive('/genre/horror')()
+        }"
+        role="radio"
+        [attr.aria-checked]="isActive('/genre/horror')()"
+      >
+        Terror
+      </span>
+    </label>
 
-  <label>
-    <input type="radio" name="genre" [checked]="isActive('/genre/horror')()" routerLink="/genre/horror" hidden />
-    <span
-      class="btn transition-all duration-200"
-      [ngClass]="{
-        'bg-blue-700 text-white font-semibold': isActive('/genre/horror')(),
-        'bg-gray-200 text-gray-800': !isActive('/genre/horror')()
-      }"
-      role="radio"
-      [attr.aria-checked]="isActive('/genre/horror')()"
-    >
-      Terror
-    </span>
-  </label>
+    <label>
+      <input type="radio" name="genre" [checked]="isActive('/genre/survival')()" routerLink="/genre/survival" hidden />
+      <span
+        class="btn transition-all duration-200"
+        [ngClass]="{
+          'bg-blue-700 text-white font-semibold': isActive('/genre/survival')(),
+          'bg-gray-200 text-gray-800': !isActive('/genre/survival')()
+        }"
+        role="radio"
+        [attr.aria-checked]="isActive('/genre/survival')()"
+      >
+        Supervivencia
+      </span>
+    </label>
 
-  <label>
-    <input type="radio" name="genre" [checked]="isActive('/genre/survival')()" routerLink="/genre/survival" hidden />
-    <span
-      class="btn transition-all duration-200"
-      [ngClass]="{
-        'bg-blue-700 text-white font-semibold': isActive('/genre/survival')(),
-        'bg-gray-200 text-gray-800': !isActive('/genre/survival')()
-      }"
-      role="radio"
-      [attr.aria-checked]="isActive('/genre/survival')()"
-    >
-      Supervivencia
-    </span>
-  </label>
+    <!-- Repite para cada género -->
+  </form>
+}@else {
+  <!-- Mostrar desplegable de categorias -->
+  <select
+  class="w-full p-2 rounded border bg-gray-100 text-gray-800"
+  [value]="getCurrentGenre()"
+  #genreSelect
+  (change)="navigateTo(genreSelect.value)"
+>
+  <option value="/">Todos</option>
+  <option value="/genre/action">Acción</option>
+  <option value="/genre/adventure">Aventura</option>
+  <option value="/genre/indie">Indie</option>
+  <option value="/genre/shooter">Shooter</option>
+  <option value="/genre/rpg">RPG</option>
+  <option value="/genre/sports">Deportes</option>
+  <option value="/genre/horror">Terror</option>
+  <option value="/genre/survival">Supervivencia</option>
+</select>
 
-  <!-- Repite para cada género -->
-</form>
+}
