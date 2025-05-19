@@ -53,9 +53,9 @@ export class GamesService {
     const { limit = 0, offset = 0, genre = '', search = '', visible = false, favorite = false } = options;
     const key = `${limit}-${offset}-${genre}-${search}-${visible}-${favorite}`;
 
-    if (this.gamesCache.has(key)) {
+   /*  if (this.gamesCache.has(key)) {
       return of(this.gamesCache.get(key)!);
-    }
+    } */
 
     return this.http.get<GameResponse>(`${baseUrl}/games`, {
         params: {
@@ -136,11 +136,20 @@ createGame(gameLike: Partial<Game>, imageFileList?: FileList): Observable<Game> 
       tap((game) => this.updateProductCache(game))
     );
 
-
   /* console.log('Creando juego en el service', gameLike);
   return this.http.post<Game>(`${baseUrl}/games`, gameLike)
   .pipe(tap((game) => this.updateProductCache(game)),
   tap((game) => console.log(game))); */
+}
+
+deleteGame(id: string): Observable<any> {
+  return this.http.delete(`${baseUrl}/games/${id}`).pipe(
+    tap(() => {
+      this.gameCache.delete(id);
+      this.gamesCache.clear(); // Limpiar caché por si hay una lista de juegos en memoria
+      console.log(`Juego con ID ${id} eliminado`);
+    })
+  );
 }
 
 updateProductCache(product: Game) {

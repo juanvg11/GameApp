@@ -1,9 +1,9 @@
- <h2 class="text-xl font-bold text-secondary mt-6 mb-2">Login</h2>
- <form class="flex flex-col gap-2"
+ <h2 class="text-xl font-bold text-blue-500 mt-6 mb-2">Inicio de sesión</h2>
+ <form class="flex flex-col gap-3"
   [formGroup]="loginForm"
   (ngSubmit)="onSubmit()"
   >
-  <label class="input input-bordered flex items-center gap-2">
+  <label class="input input-bordered flex items-center gap-2 w-full">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 16 16"
@@ -25,7 +25,7 @@
     />
   </label>
 
-  <label class="input input-bordered flex items-center gap-2">
+  <label class="input input-bordered flex items-center gap-2 w-full">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 16 16"
@@ -46,11 +46,11 @@
     />
   </label>
 
-  <button type="submit" class="btn btn-secondary">Login</button>
+  <button type="submit" class="btn btn-primary hover:btn-info">Login</button>
 
-  <p class="text-slate-700">
+  <p class="text-slate-700 mt-4">
     ¿No tienes cuenta?
-    <a routerLink="/auth/register" class="text-secondary">Créala</a>
+    <a routerLink="/auth/register" class="text-blue-300">Créala</a>
   </p>
 </form>
 

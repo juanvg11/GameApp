@@ -55,8 +55,8 @@ export class ListGameComponent {
 
      // console.log(request)
       return this.gamesService.getGames({
-        offset: request.pages * 9,
-        limit: 9
+        offset: request.pages * 8,
+        limit: 8
       })
     }
     });
