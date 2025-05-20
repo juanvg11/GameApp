@@ -1,3 +1,3 @@
 export const environments ={
-  baseUrl: 'http://localhost:5001'
+  baseUrl: 'https://nest-backend-gameapp.up.railway.app'
 }
