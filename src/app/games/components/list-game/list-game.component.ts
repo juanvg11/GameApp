@@ -13,7 +13,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'list-game',
-  imports: [GameCardComponent, SearchComponent, CategorySelectComponent, PaginationComponent, RouterLink],
+  imports: [GameCardComponent, SearchComponent, CategorySelectComponent, PaginationComponent],
   templateUrl: './list-game.component.html',
 })
 export class ListGameComponent {
