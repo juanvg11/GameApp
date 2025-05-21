@@ -1,6 +1,8 @@
-<div  class="card bg-base-100 shadow-md animate-fadeIn">
+<div
+[routerLink]="['/game', game().uuid]"
+class="card bg-base-100 shadow-md mb-6 animate-fadeIn cursor-pointer hover:scale-105 transition-transform duration-500 ease-in-out">
   <figure class="relative w-full aspect-[16/9] overflow-hidden cursor-pointer">
-    <img [routerLink]="['/game', game().uuid]"
+    <img
       [src]=" game().image| gameImage"
       [alt]="game().title" />
 
@@ -20,7 +22,7 @@
 
   </figure>
   <div class="card-body">
-    <h2 class="card-title text-slate-400 text-xl">{{game().title}}</h2>
+    <h2 class="text-slate-400 text-xl">{{game().title}}</h2>
     @if (router.url !== '/favorites') {
       <p>{{game().description | slice: 0 : 70}} ...</p>
     }
