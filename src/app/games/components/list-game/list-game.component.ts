@@ -8,11 +8,12 @@ import { CategorySelectComponent } from '@shared/components/category-select/cate
 import { PaginationComponent } from '@shared/components/pagination/pagination.component';
 import { PaginationService } from '@shared/components/pagination/pagination.service';
 import { AuthService } from '@auth/services/auth.service';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'list-game',
-  imports: [GameCardComponent, SearchComponent, CategorySelectComponent, PaginationComponent],
+  imports: [GameCardComponent, SearchComponent, CategorySelectComponent, PaginationComponent, RouterLink],
   templateUrl: './list-game.component.html',
 })
 export class ListGameComponent {

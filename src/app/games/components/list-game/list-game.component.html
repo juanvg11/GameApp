@@ -1,6 +1,18 @@
 <!-- Lo necesita porque si no no tiene el valor para buscar -->
  <div class="pb-24 px-2">
-<h1 class="text-xl font-bold mt-5 mb-5 text-blue-700">Todos los juegos</h1>
+
+<div class="flex items-center justify-between mt-5 mb-5">
+  <h1 class="text-xl font-bold text-blue-700">Todos los juegos</h1>
+  @if(authService.isAdmin()){
+      <a routerLink="/admin" class="btn btn-primary rounded-lg"> Bienvenido, <span class="text-base">{{ authService.user()?.name}}</span></a>
+    } @else if( authService.authStatus() === 'authenticated'){
+      <div>
+       Bienvenido, <span class="text-base">{{ authService.user()?.name}}</span>
+      </div>
+    }
+ <!--  <button class="btn btn-info rounded-lg ">Admin</button> -->
+</div>
+
 
 
 <app-search (value)="query.set($event)"></app-search>
